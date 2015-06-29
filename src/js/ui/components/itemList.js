@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var React = require('react');
 
 var Item = require('./item');
@@ -15,7 +16,7 @@ module.exports = React.createClass({
   },
 
   render: function() {    
-    var renderedItems = this.props.items.map(function(item) {
+    var renderedItems = _.map(this.props.items, function(item) {
       return ( <Item item={item} /> );
     });
 

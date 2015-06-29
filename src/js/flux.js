@@ -64,14 +64,19 @@ class AppStore extends Store {
       callback: _.bind(function(data, tabletop) {
         console.log('Got entries: ' + data.length);
 
+        var objData = {};
+        data.forEach(function(d) {
+          objData[d.Slug] = d;
+        });
+
         this.setState({
-          appDatabase: data,
+          appDatabase: objData,
         });
 
         if (CACHE_ENABLED) {
           browserStore.set('database', {
             updated: new Date(),
-            entries: data,
+            entries: objData,
           });
         }
 
