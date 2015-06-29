@@ -49,8 +49,10 @@
   position: relative;
 
   img {
+    display: block;
     width: 100%;
   }
+  
   &:before {
     content: "";
     background: rgba(0,0,0,0.1);
@@ -81,13 +83,36 @@
   padding: 0 20px 0;
 }
 
-.item {
+.item, .item-header {
+  color: $grey-darker;
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
+  text-decoration: none;
 }
 
 .item > div {
   flex-basis: 0;
   flex-grow: 1;
+  text-align: center;
+}
+
+.item-header-wrapper {
+  background: $blue;
+  margin-bottom: 20px;
+}
+
+.item-header {
+  max-width: 1200px;
+  padding: 0 20px 0;
+  margin: 0 auto 0;
+  > div {
+    flex-basis: 0;
+    flex-grow: 1;
+    color: white;
+    font-weight bold;
+    font-size: 18px;
+    text-align: center;
+    padding: 20px 0 ;
+  }
 }

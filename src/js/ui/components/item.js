@@ -27,7 +27,7 @@ module.exports = React.createClass({
     return (
         <Link className="item" to="cafe" params={ {id:item.Slug} } key={item.Slug}>
           <div className="name">{item['Name']}</div>
-          <div className="rating">{item['Editor\'s Rating']}</div>
+          <div className="rating">{item['Editor Rating']}</div>
           <div className="wifi">
             <PopupWrapper body={wifiDescription}>
               <span>{item['Wifi Quality']}</span>
