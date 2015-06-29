@@ -20,9 +20,9 @@ module.exports = React.createClass({
     });
 
     return (
-      <ul className="item-list">
+      <div className="item-list">
         {renderedItems}
-      </ul>
+      </div>
     );    
   },
 });
