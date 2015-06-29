@@ -9,7 +9,7 @@ module.exports = React.createClass({
   render: function() {    
     return (
       <FluxComponent connectToStores={['app']}>
-        <TopHeader />
+        <TopHeader/>
         {this.props.children}
       </FluxComponent>
     );    

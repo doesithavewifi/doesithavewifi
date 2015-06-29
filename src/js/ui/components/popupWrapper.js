@@ -20,9 +20,9 @@ module.exports = React.createClass({
 
   render: function() {   
     return (
-      <span>
-        <span ref="target">{this.props.children}</span>
-        <span ref="element">bla bla bla</span>
+      <span className="popup-wrapper">
+        <span className="popup-target" ref="target">{this.props.children}</span>
+        <span className="popup-body" ref="body">bla bla bla</span>
       </span>
     );
   },
@@ -36,23 +36,23 @@ module.exports = React.createClass({
 
   componentDidMount: function() {
     this.$target = $(React.findDOMNode(this.refs['target']));
-    this.$element = $(React.findDOMNode(this.refs['element']));
+    this.$body = $(React.findDOMNode(this.refs['body']));
 
-    this.$element.hide();
+    this.$body.hide();
 
     this.tether = new Tether({
-      element: this.$element.get(0),
+      element: this.$body.get(0),
       target: this.$target.get(0),
       attachment: 'bottom center',
       targetAttachment: 'bottom center'
     });
 
     this.$target.on('mouseover', _.bind(function() {
-      this.$element.show();
+      this.$body.show();
     }, this));
 
     this.$target.on('mouseout', _.bind(function() {
-      this.$element.hide();
+      this.$body.hide();
     }, this));
   },
 });
