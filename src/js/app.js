@@ -4,6 +4,7 @@ var Tabletop = require('tabletop').Tabletop;
 
 var { Route, DefaultRoute, RouteHandler } = Router;
 
+var Layout = require('./ui/pages/layout');
 var Home = require('./ui/pages/home');
 
 
@@ -20,7 +21,9 @@ var App = React.createClass({
 
   render: function() {
     return (
-      <RouteHandler {...this.props} database={this.state.database}/>
+      <Layout>
+        <RouteHandler {...this.props} database={this.state.database}/>
+      </Layout>
     );
   },
 
