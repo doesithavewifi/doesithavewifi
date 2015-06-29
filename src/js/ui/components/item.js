@@ -25,8 +25,7 @@ module.exports = React.createClass({
     );
 
     return (
-      <div className="item" key={item.Slug}>
-        <Link to="cafe" params={ {id:item.Slug} }>
+        <Link className="item" to="cafe" params={ {id:item.Slug} } key={item.Slug}>
           <div className="name">{item['Name']}</div>
           <div className="rating">{item['Editor\'s Rating']}</div>
           <div className="wifi">
@@ -37,7 +36,6 @@ module.exports = React.createClass({
           <div className="cost">{item['Affordability(Latte/Tea/HC)']}</div>
           <div className="location">{item['Address']}</div>
         </Link>
-      </div>
     );    
   },
 });

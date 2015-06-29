@@ -66,8 +66,28 @@
     color: white;
     position: absolute;
     font-size: 32px;
+    font-weight: bold;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+/* Home listings */
+
+.item-list {
+  margin: 0 auto 0;
+  max-width: 1200px;
+  padding: 0 20px 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.item > div {
+  flex-basis: 0;
+  flex-grow: 1;
 }
