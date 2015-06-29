@@ -5,6 +5,7 @@ var Router = require('react-router'),
 
 var PopupWrapper = require('./popupWrapper');
 
+var Stars = require('./stars');
 
 module.exports = React.createClass({
   propTypes: {
@@ -27,7 +28,8 @@ module.exports = React.createClass({
     return (
         <Link className="item" to="cafe" params={ {id:item.Slug} } key={item.Slug}>
           <div className="name">{item['Name']}</div>
-          <div className="rating">{item['Editor\'s Rating']}</div>
+          <div className="rating">{item['Editor Rating']}</div>
+            <Stars stars={5} rating={item['Editor Rating']}  />
           <div className="wifi">
             <PopupWrapper body={wifiDescription}>
               <span>{item['Wifi Quality']}</span>
