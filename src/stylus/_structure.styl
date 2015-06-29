@@ -84,12 +84,19 @@
   padding: 0 20px 0;
 }
 
-.item {
+$item {
   color: $grey-darker;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px;
+  padding: 15px 0;
   text-decoration: none;
+}
+
+.item {
+  @extend $item;
+  &:hover {
+    background: $grey-light;
+  }
 }
 
 .item > div {
@@ -100,11 +107,10 @@
 
 .item-header-wrapper {
   background: $blue;
-  margin-bottom: 20px;
 }
 
 .item-header {
-  @extend .item;
+  @extend $item;
   max-width: 1200px;
   padding: 0 20px 0;
   margin: 0 auto 0;
