@@ -1,6 +1,5 @@
 var React = require('react');
 var Router = require('react-router');
-var Tabletop = require('tabletop').Tabletop;
 
 var { Route, DefaultRoute, RouteHandler } = Router;
 
@@ -8,52 +7,32 @@ var Layout = require('./ui/pages/layout');
 var Home = require('./ui/pages/home');
 var Cafe = require('./ui/pages/cafe');
 
+import { FluxManager, FluxComponent } from './flux';
 
-const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
+
 
 
 
 var App = React.createClass({
   getInitialState: function() {
     return {
-      database: null,
+      flux: new FluxManager(),
     };
   },
 
   render: function() {
-    var content = null;
-
-    if (this.state.database) {
-      content = <RouteHandler {...this.props} database={this.state.database}/>;
-    } else {
-      content = (
-        <div>Not yet loaded!</div>
-      );
-    }
-
     return (
-      <Layout>
-        {content}
-      </Layout>
+      <FluxComponent flux={this.state.flux} connectToStores={['app']}>
+        <Layout {...this.props}>
+          <RouteHandler {...this.props} />
+        </Layout>
+      </FluxComponent>
     );
   },
 
   componentDidMount: function() {
-    Tabletop.init({ 
-      key: SPREADSHEET_URL,
-      callback: function(data, tabletop) {
-        console.log(data);
-
-        if (this.isMounted()) {
-          this.setState({
-            database: data
-          });
-        }
-      },
-      callbackContext: this,
-      simpleSheet: true
-    });
-  },
+    this.state.flux.getActions('app').loadDatabase();
+  }
 });
 
 

@@ -43,8 +43,8 @@ module.exports = React.createClass({
     this.tether = new Tether({
       element: this.$element.get(0),
       target: this.$target.get(0),
-      attachment: 'bottom left',
-      targetAttachment: 'top left'
+      attachment: 'bottom center',
+      targetAttachment: 'bottom center'
     });
 
     this.$target.on('mouseover', _.bind(function() {
