@@ -1,14 +1,14 @@
-var express = require('express');
 var path = require('path');
+
+var express = require('express');
 var serveStatic = require('serve-static');
 
 var app = express();
 
-app.use(serveStatic(
-  path.join(__dirname, 'build'), {
-    'index': ['index.html']
-  }
-));
+var buildFolder = path.join(__dirname, 'build');
+
+
+app.use(serveStatic(buildFolder));
 
 var port = process.env.PORT || 3000;
 
