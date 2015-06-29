@@ -38,7 +38,7 @@ module.exports = React.createClass({
     this.$target = $(React.findDOMNode(this.refs['target']));
     this.$body = $(React.findDOMNode(this.refs['body']));
 
-    this.$body.hide();
+    // this.$body.hide();
 
     this.tether = new Tether({
       element: this.$body.get(0),
@@ -47,13 +47,13 @@ module.exports = React.createClass({
       targetAttachment: 'bottom center'
     });
 
-    this.$target.on('mouseover', _.bind(function() {
-      this.$body.show();
-    }, this));
+    // this.$target.on('mouseover', _.bind(function() {
+    //   this.$body.show();
+    // }, this));
 
-    this.$target.on('mouseout', _.bind(function() {
-      this.$body.hide();
-    }, this));
+    // this.$target.on('mouseout', _.bind(function() {
+    //   this.$body.hide();
+    // }, this));
   },
 });
 

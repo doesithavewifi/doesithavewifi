@@ -1,3 +1,17 @@
+$popupBase
+  display block
+  height 100%
+  width 100%
+  border 1px solid #f00
+
 .popup-wrapper
+  @extend $popupBase
+  .popup-target
+    @extend $popupBase
+    display flex
+    align-items center
+    justify-content center
   .popup-body
+    border 1px solid #f00
+    padding 1em
     background-color #f00
