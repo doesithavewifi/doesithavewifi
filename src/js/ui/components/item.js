@@ -36,7 +36,7 @@ module.exports = React.createClass({
             </PopupWrapper>
           </div>
           <div className="cost">{item['Affordability(Latte/Tea/HC)']}</div>
-          <div className="location">{item['Address']}</div>
+          <div className="location">{item['Closest Station']}</div>
         </Link>
     );    
   },

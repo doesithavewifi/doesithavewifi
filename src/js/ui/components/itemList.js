@@ -1,7 +1,7 @@
 var React = require('react');
 
 var Item = require('./item');
-
+var ItemHeaders = require('./itemHeaders');
 
 module.exports = React.createClass({
   propTypes: {
@@ -20,8 +20,11 @@ module.exports = React.createClass({
     });
 
     return (
-      <div className="item-list">
-        {renderedItems}
+      <div className="item-list-wrapper">
+        <ItemHeaders />
+        <div className="item-list">
+          {renderedItems}
+        </div>
       </div>
     );    
   },

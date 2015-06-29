@@ -3,6 +3,7 @@ var React = require('react');
 var Router = require('react-router'),
   State = Router.State;
 
+import { FluxComponent } from '../../flux';
 
 
 module.exports = React.createClass({
@@ -12,7 +13,9 @@ module.exports = React.createClass({
     var id = this.getParams().id;
 
     return (
-      <div>{id}</div>
+      <FluxComponent connectToStores={['app']}>
+        <div>{id}</div>
+      </FluxComponent>
     );
   },
 });
