@@ -13,9 +13,15 @@ module.exports = React.createClass({
   },
 
   render: function() {    
+    var item = this.props.item;
+    
     return (
       <div className="item">
-        item here
+        <div className="name">{item['Name']}</div>
+        <div className="rating">{item['Editor\'s Rating']}</div>
+        <div className="wifi">{item['Wifi Quality']}</div>
+        <div className="cost">{item['Affordability(Latte/Tea/HC)']}</div>
+        <div className="location">{item['Address']}</div>
       </div>
     );    
   },
