@@ -2,20 +2,10 @@
 @import "nib"
 @import "rupture"
 
-@import "_fonts.styl"
+@import "_fonts"
 @import "../../node_modules/iconfonts/stylesheets/ionicons.styl"
-
 
 global-reset()
 
-html
-  font-family $body-font
-  font-size 16px
-  background-color #fff
-  color #000
-
-.logo
-  position relative
-  
-  &:before
-    ion-icon("alert")
+@import "_base"
+@import "_structure"
