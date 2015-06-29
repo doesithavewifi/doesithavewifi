@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 var React = require('react');
 
-var Tether = require('tether');
+var Tooltip = require('tether-tooltip');
 
 
 
@@ -22,38 +22,26 @@ module.exports = React.createClass({
     return (
       <span className="popup-wrapper">
         <span className="popup-target" ref="target">{this.props.children}</span>
-        <span className="popup-body" ref="body">bla bla bla</span>
       </span>
     );
   },
 
   componentWillUnmount: function() {
-    if (this.tether) {
-      this.tether.destroy();
+    if (this.tooltip) {
+      this.tooltip.drop.destroy();
     }
   },
 
 
   componentDidMount: function() {
     this.$target = $(React.findDOMNode(this.refs['target']));
-    this.$body = $(React.findDOMNode(this.refs['body']));
 
-    // this.$body.hide();
-
-    this.tether = new Tether({
-      element: this.$body.get(0),
+    this.tooltip = new Tooltip({
       target: this.$target.get(0),
-      attachment: 'bottom center',
-      targetAttachment: 'bottom center'
+      content: "My awesome <b>content</b>.",
+      classes: 'popup-tether-body',
+      position: 'bottom center'
     });
-
-    // this.$target.on('mouseover', _.bind(function() {
-    //   this.$body.show();
-    // }, this));
-
-    // this.$target.on('mouseout', _.bind(function() {
-    //   this.$body.hide();
-    // }, this));
   },
 });
 

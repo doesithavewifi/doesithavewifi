@@ -3,7 +3,7 @@ var React = require('react');
 var Router = require('react-router'),
   Link = Router.Link;
 
-var PopupWrapper = require('./popupWrapper');
+var Popup = require('./popup');
 
 
 module.exports = React.createClass({
@@ -29,9 +29,9 @@ module.exports = React.createClass({
           <div className="name">{item['Name']}</div>
           <div className="rating">{item['Editor Rating']}</div>
           <div className="wifi">
-            <PopupWrapper body={wifiDescription}>
+            <Popup body={wifiDescription}>
               <span>{item['Wifi Quality']}</span>
-            </PopupWrapper>
+            </Popup>
           </div>
           <div className="cost">{item['Affordability(Latte/Tea/HC)']}</div>
           <div className="location">{item['Closest Station']}</div>
