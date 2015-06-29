@@ -1,0 +1,30 @@
+# Does it have wifi?
+
+## Development
+
+Requires **Node 0.12+**.
+
+Install:
+
+```bash
+$ npm install -g gulp
+$ npm install
+```
+
+Run server with auto-reload (without minification):
+
+```bash
+$ gulp --debug
+```
+
+To force minification of assets (build takes a bit longer) don't include the `--debug` flag:
+
+```bash
+$ gulp
+```
+
+## Credits
+
+[Ramesh Nair](https://github.com/hiddentao)
+[Jeff Lau](https://github.com/jefflau)
+[Leon Talbert](https://github.com/LeonmanRolls)
