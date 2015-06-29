@@ -41,6 +41,7 @@
     "run-sequence": "~1.1.0",
     "rupture": "~0.6.1",
     "serve-static": "~1.10.0",
+    "tabletop": "git://github.com/taipowerapps/tabletop.git#6ab39fc21f6b5f524756dda2316cffb4404f0860",
     "vinyl-source-stream2": "~0.1.1",
     "watchify": "~3.2.1",
     "yargs": "~3.9.1"
