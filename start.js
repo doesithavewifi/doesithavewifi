@@ -1,5 +1,4 @@
-var path = require('path'),
-  fs = require('fs');
+var path = require('path');
 
 var express = require('express'), 
   serveStatic = require('serve-static');
@@ -8,16 +7,8 @@ var app = express();
 
 var buildFolder = path.join(__dirname, 'build');
 
-app.use(serveStatic(buildFolder, {
-  index: false
-}));
+app.use(serveStatic(buildFolder));
 
-
-var content = fs.readFileSync(path.join(buildFolder, 'index.html')).toString();
-
-app.get('/', function(req, res, next) {
-  res.send(content);
-});
 
 var port = process.env.PORT || 3000;
 
