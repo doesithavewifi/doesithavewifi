@@ -17,16 +17,8 @@ module.exports = React.createClass({
   },
 
   render: function() {    
-    if (this.props.database) {
-      return (
-        <div>
-          <ItemList items={this.props.database} />
-        </div>
-      );    
-    } else {
-      return (
-        <div>Not yet loaded!</div>
-      );
-    }
+    return (
+      <ItemList items={this.props.database} />
+    );    
   },
 });
