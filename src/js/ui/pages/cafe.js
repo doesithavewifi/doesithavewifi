@@ -9,8 +9,6 @@ module.exports = React.createClass({
   mixins: [State],
 
   render: function() {
-    console.log( this.getParams() );
-
     var id = this.getParams().id;
 
     return (
