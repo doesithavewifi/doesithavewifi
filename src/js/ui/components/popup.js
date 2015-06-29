@@ -22,26 +22,10 @@ module.exports = React.createClass({
     return (
       <span className="popup-wrapper">
         <span className="popup-target" ref="target">{this.props.children}</span>
+        <div className="popup-body" ref="target">bla bla bla</div>
       </span>
     );
   },
 
-  componentWillUnmount: function() {
-    if (this.tooltip) {
-      this.tooltip.drop.destroy();
-    }
-  },
-
-
-  componentDidMount: function() {
-    this.$target = $(React.findDOMNode(this.refs['target']));
-
-    this.tooltip = new Tooltip({
-      target: this.$target.get(0),
-      content: "My awesome <b>content</b>.",
-      classes: 'popup-tether-body',
-      position: 'bottom center'
-    });
-  },
 });
 
