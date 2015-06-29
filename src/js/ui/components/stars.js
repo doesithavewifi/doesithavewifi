@@ -3,17 +3,28 @@ var React = require('react');
 //Sci-Fi nerds will know about star maker!
 function starMaker(jsxArray, noOfStars, rating){
 
-    console.log(rating);
-
    if(noOfStars <= 0){
       return jsxArray;
+   }
 
-   }else if(rating >= noOfStars) {
+   else if (rating == 0.5){
+       jsxArray.push(<div>Half a star</div>)
+       return jsxArray;
+   }
+
+   else if(rating >= noOfStars) {
        jsxArray.push(<div>Star</div>)
        return starMaker(jsxArray, (noOfStars - 1), rating)
+   }
 
-   }else{
-       jsxArray.push(<div>Empty Star</div>)
+   else{
+       console.log(rating - noOfStars);
+       console.log((rating - noOfStars) == -0.5);
+       if((rating - noOfStars) == -0.5){
+           jsxArray.push(<div>Half a star</div>)
+       }else{
+           jsxArray.push(<div>Empty Star</div>)
+       }
        return starMaker(jsxArray, (noOfStars - 1), rating)
    }
 }
