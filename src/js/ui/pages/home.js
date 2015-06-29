@@ -1,12 +1,13 @@
 var React = require('react');
 
-var Logo = require('../components/logo');
+var ItemList = require('../components/itemList'),
+  Logo = require('../components/logo');
 
 
 
 module.exports = React.createClass({
   propTypes: {
-    database : React.PropTypes.object,
+    database : React.PropTypes.array,
   },
 
   getDefaultProps: function() {
@@ -19,8 +20,7 @@ module.exports = React.createClass({
     if (this.props.database) {
       return (
         <div>
-          "Who is your Daddy and what does he do?"
-          <Logo />
+          <ItemList items={this.props.database} />
         </div>
       );    
     } else {

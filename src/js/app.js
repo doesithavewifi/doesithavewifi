@@ -31,6 +31,8 @@ var App = React.createClass({
     Tabletop.init({ 
       key: SPREADSHEET_URL,
       callback: function(data, tabletop) {
+        console.log(data);
+        
         if (this.isMounted()) {
           this.setState({
             database: data
