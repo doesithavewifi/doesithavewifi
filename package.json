@@ -5,12 +5,19 @@
   "description": "Does it have wifi?",
   "author": "Ramesh Nair <ram@hiddentao.com>",
   "license": "GPL3",
+  "engines": {
+    "node": "0.12.x"
+  },
+  "scripts": {
+    "start": "node start.js"
+  },
   "dependencies": {
     "babelify": "~6.1.2",
     "bluebird": "~2.9.27",
     "browserify": "~10.2.1",
     "browserify-shim": "~3.8.7",
     "coffee-script": "~1.9.2",
+    "express": "~4.13.0",
     "gulp": "~3.8.11",
     "gulp-autoprefixer": "~2.3.0",
     "gulp-concat": "~2.5.2",
@@ -32,6 +39,7 @@
     "reactify": "~1.1.1",
     "run-sequence": "~1.1.0",
     "rupture": "~0.6.1",
+    "serve-static": "~1.10.0",
     "vinyl-source-stream2": "~0.1.1",
     "watchify": "~3.2.1",
     "yargs": "~3.9.1"
