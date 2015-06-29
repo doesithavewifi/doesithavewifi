@@ -9,7 +9,7 @@ module.exports = React.createClass({
           <div className="rating-header">Editors Rating</div>
           <div className="wifi-header">WiFi Quality</div>
           <div className="cost-header">Affordability</div>
-          <div className="location-header">Location</div>
+          <div className="location-header">Nearest MRT</div>
         </div>
       </div>
     );    

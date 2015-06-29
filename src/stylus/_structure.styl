@@ -1,3 +1,5 @@
+/* Header Styles */
+
 .header {
   background: #62B2FC;
   display: flex;
@@ -16,18 +18,15 @@
   width: 331px;
   position relative
   text-indent: -9999px;
-  
-  &:before {
-    ion-icon("alert")
-  }
 } 
 
 .dropdown {
   color: white;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 24px;
   margin-left: 20px;
   padding: 5px 10px;
-  border-bottom: 2px white solid;
+  border-bottom: 3px white solid;
 }
 
 .main-nav {
@@ -44,6 +43,8 @@
     margin-left: 25px;
   }
 }
+
+/* Hero */
 
 .hero {
   position: relative;
@@ -83,7 +84,7 @@
   padding: 0 20px 0;
 }
 
-.item, .item-header {
+.item {
   color: $grey-darker;
   display: flex;
   justify-content: space-between;
@@ -103,6 +104,7 @@
 }
 
 .item-header {
+  @extend .item;
   max-width: 1200px;
   padding: 0 20px 0;
   margin: 0 auto 0;
