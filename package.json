@@ -5,13 +5,20 @@
   "description": "Does it have wifi?",
   "author": "Ramesh Nair <ram@hiddentao.com>",
   "license": "GPL3",
+  "engines": {
+    "node": "0.12.x"
+  },
+  "scripts": {
+    "start": "node start.js",
+    "postinstall": "node_modules/.bin/gulp assets"
+  },
   "dependencies": {
     "babelify": "~6.1.2",
     "bluebird": "~2.9.27",
     "browserify": "~10.2.1",
     "browserify-shim": "~3.8.7",
     "coffee-script": "~1.9.2",
-    "font-awesome-stylus": "~4.3.0",
+    "express": "~4.13.0",
     "gulp": "~3.8.11",
     "gulp-autoprefixer": "~2.3.0",
     "gulp-concat": "~2.5.2",
@@ -22,6 +29,7 @@
     "gulp-stylus": "~2.0.2",
     "gulp-uglify": "~1.2.0",
     "gulp-util": "~3.0.4",
+    "iconfonts": "~0.7.0",
     "jquery": "~2.1.4",
     "lodash": "~3.9.3",
     "moment": "~2.10.3",
@@ -32,6 +40,9 @@
     "reactify": "~1.1.1",
     "run-sequence": "~1.1.0",
     "rupture": "~0.6.1",
+    "serve-static": "~1.10.0",
+    "tabletop": "git://github.com/taipowerapps/tabletop.git#6ab39fc21f6b5f524756dda2316cffb4404f0860",
+    "tether": "~1.0.2",
     "vinyl-source-stream2": "~0.1.1",
     "watchify": "~3.2.1",
     "yargs": "~3.9.1"

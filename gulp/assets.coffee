@@ -1,4 +1,4 @@
 module.exports = ->
   return {
-    deps: ['jade', 'css', 'img', 'js', 'fonts']
+    deps: ['jade', 'stylus', 'img', 'js', 'fonts']
   }
