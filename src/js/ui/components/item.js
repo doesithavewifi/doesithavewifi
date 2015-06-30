@@ -30,10 +30,9 @@ module.exports = React.createClass({
           <div className="name">{item['Name']}</div>
           <div className="rating">{item['Editor Rating']}</div>
             <Stars stars={5} rating={item['Editor Rating']}  />
-          <div className="wifi">
-            <Popup body={wifiDescription}>
-              <span>{item['Wifi Quality']}</span>
-            </Popup>
+          <div className="wifi" data-popup-trigger>
+            {item['Wifi Quality']}
+            <Popup>{wifiDescription}</Popup>
           </div>
           <div className="cost">{item['Affordability(Latte/Tea/HC)']}</div>
           <div className="location">{item['Closest Station']}</div>
