@@ -1,22 +1,44 @@
-.popup {
-  padding 1em
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color $black
-  color $white
-  opacity: 0;
-  border-radius 10px
-  box-shadow 0px 0px 24px 2px rgba(176,176,176,1)
-  z-index -1;
-  transition: 0.3s;
-}
-
-[data-popup-trigger] {
-  position: relative;
-  &:hover > .popup {
-    opacity: 1;
-    z-index 1;
+.element {
+  &[data-popup-trigger] {
+    position: relative;
+    
+    &:hover > .popup-body {
+      opacity: 1;
+      z-index 20;
+    }
+  }
+  
+  .popup-body {
+    padding: 1em;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color $black
+    color $white
+    opacity: 0;
+    border-radius 10px
+    box-shadow 0px 0px 24px 2px rgba(176,176,176,1)
+    z-index -1;
+    transition: 0.3s;
   }
 }
+
+
+
+i {
+  &.icon-empty-star {
+    ion-icon("ios-star-outline");
+  }
+  
+  &.icon-half-star {
+    ion-icon("ios-star-half");
+  }
+  
+  &.icon-full-star {
+    ion-icon("ios-star");
+  }
+}
+
+
+
