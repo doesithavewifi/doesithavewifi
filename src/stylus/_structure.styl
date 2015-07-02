@@ -1,3 +1,11 @@
+/* Structure Styles to extend */
+
+main {
+  margin: 0 auto 0;
+  max-width: 1200px;
+  padding: 0 20px 0;
+}
+
 /* Header Styles */
 
 .header {
@@ -80,9 +88,7 @@
 /* Home listings */
 
 .item-list {
-  margin: 0 auto 0;
-  max-width: 1200px;
-  padding: 0 20px 0;
+  @extend main;
 }
 
 $item {

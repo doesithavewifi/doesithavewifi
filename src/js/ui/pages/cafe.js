@@ -22,10 +22,12 @@ module.exports = React.createClass({
       content = 
         <div className="cafe">
           <Hero heroUrl={heroUrl} title={item['Name']}/>
-          <p>{item['Editor Rating']}</p>
-          <p>{item['Description']}</p>
-          <p>{item['Website']}</p>
-          <p>{item['Address']}</p>
+          <main>
+            <p>{item['Editor Rating']}</p>
+            <p>{item['Description']}</p>
+            <p>{item['Website']}</p>
+            <p>{item['Address']}</p>
+          </main>
         </div>
       ;
     } else {
