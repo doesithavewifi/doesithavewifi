@@ -49,7 +49,7 @@ var routes = (
 Router.run(routes, Router.HashLocation, function(Handler, state) {
   React.render(
     <Handler routes={state.routes} params={state.params} query={state.query} />, 
-    $('main').get(0)
+    $('.wrapper').get(0)
   );
 });
  
