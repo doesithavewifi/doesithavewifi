@@ -110,7 +110,9 @@ exports.parseAffordability = function(str) {
       total += ret[drinkType];
     });
 
-    ret.avge = total * 1.0 / (availableDrinkTypes.length);
+    ret.avge = parseInt(
+      Math.round(total * 1.0 / (availableDrinkTypes.length))
+    );
   }
 
   return ret;

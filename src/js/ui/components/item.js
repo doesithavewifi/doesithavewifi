@@ -37,7 +37,7 @@ module.exports = React.createClass({
           {item.wifi_quality}
         </DataElement>
         <DataElement className="cost">
-          {item.affordability}
+          {item.affordability.avge}
         </DataElement>
         <DataElement className="location">
           {item.closest_station}

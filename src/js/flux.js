@@ -12,7 +12,7 @@ var utils = require('./utils');
 
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
 
-const CACHE_ENABLED = false;
+const CACHE_ENABLED = true;
 
 
 class AppActions extends Actions {

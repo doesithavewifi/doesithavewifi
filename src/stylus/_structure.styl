@@ -25,11 +25,20 @@ main {
 }
 
 .logo {
-  background url('/img/logo.png')
-  height: 37px;
-  width: 331px;
-  position relative
-  text-indent: -9999px;
+  h1 {
+    background: url('/img/logo.png') center center no-repeat;
+    height: 37px;
+    width: 331px;
+    position: relative;
+    text-indent: -9999px;    
+  }
+  
+  +below($mobile-max-width) {
+    h1 {
+      background-position -225px center;
+      width: 110px;
+    }
+  }
 } 
 
 .dropdown {
@@ -39,6 +48,10 @@ main {
   margin-left: 20px;
   padding: 5px 10px;
   border-bottom: 3px white solid;
+  
+  +below($mobile-max-width) {
+    font-size: 1.5rem;
+  }
 }
 
 .main-nav {
@@ -83,6 +96,12 @@ $item {
   flex-grow: 1;
   height: 100%;
   text-align: center;
+  
+  &.cost {
+    +below($mobile-max-width) {
+      display none
+    }
+  }
 }
 
 .item-header-wrapper {
@@ -105,4 +124,11 @@ $item {
     text-align: center;
     padding: 2rem 0 ;
   }
+  
+  .cost-header {
+    +below($mobile-max-width) {
+      display none
+    }
+  }
 }
+
