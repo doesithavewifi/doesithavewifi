@@ -71,18 +71,26 @@ $heroHeight = 300px;
 
     > .title {
       color: white;
+      font-family: Open Sans;
       text-align: center;
+      margin-bottom: 10px;
       font-size: 3.2rem;
       font-weight: bold;
     }
     > .address {
       color: white;
+      font-size: 1.8rem;
       text-align: center;
     }
     
     > .editor-rating {
       text-align: center;
       color: white;
+      font-size: 28px;
+      margin-bottom: 15px;
+      .icon-full-star {
+        padding: 2px;
+      }
     }
   }
 }
@@ -112,44 +120,82 @@ i {
   }
 }
 
-/* Sub Nav */
+/* Section Header */
 
-.sub-nav {
+.section-header {
   background: $blue;
+  font-family: Montserrat;
   padding: 20px 0;
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
 
-  &:before, &:after {
-    content: "";
-    background: $blue;
-    height: 100%;
-    width: 1500px;
-    top: 0;
-    position: absolute;
+/* Cafe Description */
+
+.cafe-description {
+  margin: 20px 20px;
+  font-size: 1.8rem;
+  line-height: 2em;
+  max-width: 800px;
+}
+
+/* Rating Item */
+
+.rating-item {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid $grey-light;
+  
+  h3 {
+    font-size: 1.8rem;
+    flex-basis: 0;
+    flex-grow: 1;
   }
   
-  &:before {
-    right: 100%;
-  }
-  
-  &:after {
-    left: 100%;
-  }
-  
-  > a {
-    flex-size: 1;
-    height: 100%;
-    width: 33.3333%;
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    color: white
-    text-decoration: none;
-    text-align: center;
+  .rating-item-value {    
+    flex-basis: 0;
+    flex-grow: 1;
+    p, a {
+      display: block;
+      overflow: ellipsis;
+      // overflow: hidden; 
+      // white-space: nowrap;
+    }
   }
 }
+
+/* Opening Times */
+
+.opening-times {
+  padding-left: 20px;
+}
+
+.day {
+  display: flex;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.day-name {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.time {
+  flex-basis: 0;
+  flex-grow: 3;
+}
+
 
 
 /* Spinning loader */

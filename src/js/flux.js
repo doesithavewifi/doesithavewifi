@@ -125,6 +125,7 @@ class AppStore extends Store {
         case 'food_snack_selection':
         case 'quietness':
         case 'wifi_quality':
+        case 'power_outlet':
         case 'toilet_hygiene':
           var val = parseFloat(item[key]);
           if (Number.isNaN(val)) {
@@ -132,7 +133,6 @@ class AppStore extends Store {
           }
           break;
         case 'pay_for_power':
-        case 'power_outlet':
         case 'serves_alcohol':
         case 'smoking_area':
           val = ('true' === val.toLowerCase());
