@@ -34,10 +34,10 @@ module.exports = React.createClass({
           <Stars stars={5} rating={item.editor_rating}  />
         </DataElement>
         <DataElement className="wifi" popup={wifiDescription}>
-          {item.wifi_quality}
+          <Stars stars={5} rating={item.wifi_quality} fullIcon="wifi" halfIcon="shit-wifi" />
         </DataElement>
         <DataElement className="cost">
-          {item.affordability}
+          {item.affordability.avge}
         </DataElement>
         <DataElement className="location">
           {item.closest_station}
