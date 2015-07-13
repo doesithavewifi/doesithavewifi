@@ -20,7 +20,8 @@ module.exports = React.createClass({
         }
         break;
       case 'boolean':
-        rating = <p className="boolean">{value ? 'Yes': 'No' }</p>
+
+        rating = <p className={`boolean ${value ? 'yes': 'no' }`}>{value ? 'Yes': 'No' }</p>
         break;
     }
     return (

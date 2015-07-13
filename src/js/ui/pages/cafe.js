@@ -77,6 +77,9 @@ module.exports = React.createClass({
               <RatingItem title="Ergonomics" value={item.desk_chair} />
               <RatingItem title="Website" value={item.website} />
               <RatingItem title="Closest Station" value={item.closest_station.original} />
+              <RatingItem title="Minimum Order" value={item.minimum_order} />
+              <RatingItem title="Smoking Area" value={item.smoking_area} />
+              <RatingItem title="Serves Alcohol" value={item.smoking_area} />
             </section>
             
             <section id="map">
