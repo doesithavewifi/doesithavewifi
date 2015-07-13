@@ -67,7 +67,9 @@ class AppStore extends Store {
       callback: _.bind(function(data, tabletop) {
         var objData = {};
         data.forEach( (d) => {
-          objData[d.Slug] = this._parse(d);
+          var parsed = this._parse(d);
+
+          objData[parsed.slug] = parsed;
         });
 
         console.log('Got entries', objData);
@@ -97,9 +99,24 @@ class AppStore extends Store {
 
 
   _parse (item) {
-    var ret = _.extend({}, item);
+    var ret = {};
 
-    ret['Opening times'] = utils.parseOpeningTimes(ret['Opening times']);
+    var keys = Object.keys(item);
+
+    keys.forEach((key) => {
+      var slugified = utils.slugify(key);
+
+      switch (slugified) {
+        case 'opening_times':
+          ret[slugified] = utils.parseOpeningTimes(item[key]);
+          break;
+        case 'affordability':
+          ret[slugified] = utils.parseAffordability(item[key]);
+          break;
+        default:
+          ret[slugified] = item[key];
+      }
+    });
 
     return ret;
   }

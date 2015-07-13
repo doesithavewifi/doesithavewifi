@@ -1,13 +1,28 @@
 var _ = require('lodash');
 
 
+exports.slugify = function(str) {
+  str = (str || '').toLowerCase();
+
+  // Affordability:blabla -> Affordability
+  var colonPos = str.indexOf(':');
+  if (0 < colonPos) {
+    str = str.substr(0, colonPos);
+  }
+
+  // Opening times (normal) -> opening_times_normal_
+  str = str.replace(/[\s\(\)/\/\:\,]+/g, '_');
+
+  return str;
+};
+
+
+
+
 /**
  * Parse opening times string into object.
  *
  * Example: `Mon-Fri:1100-1900,Sat:0600-2400`
- * 
- * @param  {[type]} str [description]
- * @return {[type]}     [description]
  */
 exports.parseOpeningTimes = function(str) {
   var daysInWeek = [
@@ -57,6 +72,46 @@ exports.parseOpeningTimes = function(str) {
       }
     }
   };
+
+  return ret;
+};
+
+
+
+
+/**
+ * Parse affordability string into object.
+ *
+ * Example: `120/?/200`
+ */
+exports.parseAffordability = function(str) {
+  str = (str || '').toLowerCase();
+
+  var values = str.split('/').map((v) => v.trim());
+
+  var drinkTypes = ['Latte', 'Tea', 'Hot chocolate'];
+
+  var ret = {};
+
+  drinkTypes.forEach(function(drinkType, index) {
+    var cost = parseInt(values[index] || null);
+
+    if (!Number.isNaN(cost)) {
+      ret[drinkType] = cost;
+    }
+  });
+
+  var availableDrinkTypes = Object.keys(ret);
+
+  if (availableDrinkTypes.length) {
+    var total = 0;
+
+    availableDrinkTypes.forEach(function(drinkType) {
+      total += ret[drinkType];
+    });
+
+    ret.avge = total * 1.0 / (availableDrinkTypes.length);
+  }
 
   return ret;
 };
