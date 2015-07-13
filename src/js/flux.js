@@ -99,7 +99,7 @@ class AppStore extends Store {
   _parse (item) {
     var ret = _.extend({}, item);
 
-    ret.openingTimes = utils.parseOpeningTimes(ret['Opening times']);
+    ret['Opening times'] = utils.parseOpeningTimes(ret['Opening times']);
 
     return ret;
   }
