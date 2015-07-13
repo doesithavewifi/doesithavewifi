@@ -18,6 +18,25 @@ exports.slugify = function(str) {
 
 
 
+exports.generateWifiDescription = function(qualityLevel) {
+  switch (qualityLevel) {
+    case 0:
+      return "WiFi is usually not available in this cafe, unless it's your lucky day. In fact why is this cafe even on here!?";
+    case 1:
+      return "WiFi is very unreliable. Expect extremely slow speeds and frequent disconnections. The only thing missing is the dialup internet connection tone.";
+    case 2:
+      return "WiFi is sluggish, with speed often crawling to a drag accompanied by frequent disconnections. It gets your hopes up and then brings you down again. Bring a stress ball with you.";
+    case 3:
+      return "WiFi is ok, with speed sometimes slowing drag amid occasional disconnections. You should be able to get some work done.";
+    case 4:
+      return "WiFi signal is strong, and the speed is reasonably consistent. Occasionally you may experience disconnections but these are mere flesh wounds.";
+    case 5:
+      return "WiFi signal is excellent with disconnections being rare. Excellent speed internet with very few reliability problems. Why not try a torrent? :)";
+  }
+};
+
+
+
 exports.parseClosestStation = function(str) {  
   var ret = {
     original: str,
