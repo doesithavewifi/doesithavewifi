@@ -6,10 +6,21 @@ module.exports = React.createClass({
 
   render: function() {
     var rating;
-    if(typeof this.props.value === "number") {
-      rating = <Star rating={this.props.value} />
-    } else if(typeof this.props.value === "string") {
-      rating = <p>{this.props.value}</p>
+    var value = this.props.value;
+    if(typeof value=== "number") {
+      rating = <Star rating={value} />
+    } else if(typeof value === "string") {
+      if(value.slice(0, 4) === "http") {
+        rating = <a href={value}>{value}</a>
+      } else {
+        rating = <p>{value}</p>
+      }
+    } else if(typeof value === "boolean") {
+      if(value === true) {
+        rating = <p class="boolean">Yes</p>
+      } else {
+        rating = <p class="boolean">No</p>
+      }
     }
     return (
       <div className="rating-item">

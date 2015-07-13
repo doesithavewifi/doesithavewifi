@@ -70,8 +70,8 @@ module.exports = React.createClass({
               <RatingItem title="Power Outlet" value={item.power_outlet}></RatingItem>
               <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene}></RatingItem>
               <RatingItem title="Ergonomics" value={item.desk_chair}></RatingItem>
-              <p>{item.website}</p>
-              <p>{item.closest_station}</p>
+              <RatingItem title="Website" value={item.website}></RatingItem>
+              <RatingItem title="Closest Station" value={item.closest_station}></RatingItem>
             </section>
             
             <section className="location" id="map">

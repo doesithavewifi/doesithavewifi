@@ -140,7 +140,27 @@ i {
 .rating-item {
   float: left;
   width: 50%;
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid $grey-light;
+  
+  h3 {
+    font-size: 1.8rem;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+  
+  .rating-item-value {    
+    flex-basis: 0;
+    flex-grow: 1;
+    p, a {
+      display: block;
+      overflow: ellipsis;
+      // overflow: hidden; 
+      // white-space: nowrap;
+    }
+  }
 }
 
 
