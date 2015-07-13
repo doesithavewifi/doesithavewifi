@@ -3,11 +3,15 @@
 main {
   margin: 0 auto 0;
   max-width: 1200px;
-  padding: 0 20px 0;
+  padding: 0 20px;
   
   > section {
     clearfix();
     margin-bottom: 20px;
+  }
+  
+  +below($mobile-max-width) {
+    padding: 0 10px;
   }
 }
 
@@ -113,7 +117,7 @@ $item {
 .item-header {
   @extend $item;
   max-width: 1200px;
-  padding: 0 20px 0;
+  padding: 0 20px;
   margin: 0 auto 0;
   line-height: 2rem;
   > div {
@@ -126,6 +130,10 @@ $item {
     font-size: 1.8rem;
     text-align: center;
     padding: 2rem 0 ;
+  }
+  
+  +below($mobile-max-width) {
+    padding: 0 10px;
   }
   
   .cost-header {

@@ -24,8 +24,10 @@ module.exports = React.createClass({
           description,
           openingTimes;
 
-      if (item.image1) {
-        heroUrl = item.image1;
+
+      var heroUrl = "/img/cafes/default-header.jpg";
+      if (item.header_image) {
+        heroUrl = item.header_image;
       }
 
       if(item.description) {
