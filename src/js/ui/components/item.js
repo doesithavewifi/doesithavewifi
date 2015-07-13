@@ -40,7 +40,7 @@ module.exports = React.createClass({
           {item['Affordability(Latte/Tea/HC)']}
         </DataElement>
         <DataElement className="location">
-        {item['Closest Station']}
+          {item['Closest Station']}
         </DataElement>
       </Link>
     );    

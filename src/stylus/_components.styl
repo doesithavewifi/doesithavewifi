@@ -1,3 +1,5 @@
+/* Data Element */
+
 .data-element {
   height: 100%;
   width: 100%;
@@ -34,7 +36,51 @@
   }
 }
 
+/* Hero */
 
+.hero {
+  position: relative;
+
+  > img {
+    display: block;
+    width: 100%;
+  }
+  
+  &:before {
+    content: "";
+    background: rgba(0,0,0,0.1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  
+  > .content {
+    absoluteCenterer()
+    z-index: 1;
+    
+    > .title {
+      color: white;
+      text-align: center;
+      font-size: 3.2rem;
+      font-weight: bold;
+    }
+    > .address {
+      color: white;
+      text-align: center;
+    }
+    
+    > .editor-rating {
+      text-align: center;
+      color: white;
+    }
+  }
+}
+
+/* Star Maker */
 
 i {
   &.icon-empty-star {
@@ -47,6 +93,45 @@ i {
   
   &.icon-full-star {
     ion-icon("ios-star");
+  }
+}
+
+/* Sub Nav */
+
+.sub-nav {
+  background: $blue;
+  padding: 20px 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  &:before, &:after {
+    content: "";
+    background: $blue;
+    height: 100%;
+    width: 1500px;
+    top: 0;
+    position: absolute;
+  }
+  
+  &:before {
+    right: 100%;
+  }
+  
+  &:after {
+    left: 100%;
+  }
+  
+  > a {
+    flex-size: 1;
+    height: 100%;
+    width: 33.3333%;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: white
+    text-decoration: none;
+    text-align: center;
   }
 }
 
