@@ -32,7 +32,7 @@ module.exports = React.createClass({
       zIndex: 2e9,
       top: '50%',
       left: '50%',
-      scale: 3.00
+      scale: 2.50
     };
 
     return (
