@@ -40,7 +40,7 @@ module.exports = React.createClass({
           {item.affordability.avge}
         </DataElement>
         <DataElement className="location">
-          {item.closest_station}
+          {item.closest_station.station}
         </DataElement>
       </Link>
     );    

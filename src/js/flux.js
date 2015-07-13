@@ -110,12 +110,15 @@ class AppStore extends Store {
 
       switch (slugified) {
         case 'opening_times':
-          val = utils.parseOpeningTimes(item[key]);
+          val = utils.parseOpeningTimes(val);
           break;
         case 'affordability':
-          val = utils.parseAffordability(item[key]);
+          val = utils.parseAffordability(val);
           break;
-        case 'ambience':
+        case 'closest_station':
+          val = utils.parseClosestStation(val);
+          break;
+        case 'ambience':        
         case 'desk_chair':
         case 'drinks_quality':
         case 'editor_rating':

@@ -48,7 +48,7 @@ module.exports = React.createClass({
             <section className="information" id="information">
               <p>{item.website}</p>
               <p>{item.description}</p>
-              <p>{item.closest_station}</p>
+              <p>{item.closest_station.original}</p>
             </section>
             <section className="opening-times" id="opening-times">
               Opening Times
