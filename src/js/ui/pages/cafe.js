@@ -19,7 +19,11 @@ module.exports = React.createClass({
 
       var id = this.getParams().id;
       var item = this.props.appDatabase[id];
-      var heroUrl = `/img/cafes/${id}.jpg`;
+
+      var heroUrl = "/img/cafes/default-header.jpg";
+      if (item.image1) {
+        heroUrl = item.image1;
+      }
 
       var nav = [
         {

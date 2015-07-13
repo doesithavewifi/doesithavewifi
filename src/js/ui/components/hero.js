@@ -9,14 +9,26 @@ module.exports = React.createClass({
       var address = 
           <div className="address">{this.props.address}</div>
     }
+
+    var heroAttrs = {
+      style: {
+        backgroundImage: `url(/img/header.jpg)`,
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100%",
+      }
+    };
+    if (this.props.heroUrl) {
+      heroAttrs.style.backgroundImage = `url(${this.props.heroUrl})`
+    };
+
     return (
-      <section className="hero">
+      <section className="hero" {...heroAttrs}>
         <div className="content">
           <h2 className="title">{this.props.title}</h2>
           {rating}
           {address}
         </div>
-        <img src={this.props.heroUrl} />
       </section>
     );    
   },
