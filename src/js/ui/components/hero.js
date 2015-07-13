@@ -15,7 +15,7 @@ module.exports = React.createClass({
         backgroundImage: `url(/img/header.jpg)`,
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100% 100%",
+        backgroundSize: "cover",
       }
     };
     if (this.props.heroUrl) {
