@@ -1,80 +1,65 @@
 var React = require('react');
 
-
 var Icon = require('./icon');
 
 
-
 module.exports = React.createClass({
-    propTypes: {
-      stars : React.PropTypes.number,
-      rating : React.PropTypes.number,
-      fullIcon : React.PropTypes.string,
-      halfIcon : React.PropTypes.string,
-      emptyIcon : React.PropTypes.string,
-    },
+  propTypes: {
+    stars : React.PropTypes.number,
+    rating : React.PropTypes.number,
+    fullIcon : React.PropTypes.string,
+    halfIcon : React.PropTypes.string,
+    emptyIcon : React.PropTypes.string,
+  },
 
-    getDefaultProps: function() {
-      return {
-        stars: 5,
-        rating: 0,
-        fullIcon: 'full-star',
-        halfIcon: 'half-star',
-        emptyIcon : 'empty-star',
-      };
-    },
-
-
-    //Sci-Fi nerds will know about star maker!
-    starMaker: function (jsxArray, noOfStars, rating) {
-
-        if(noOfStars <= 0){
-            return jsxArray;
-        }
-
-        else if (rating == 0.5){
-            jsxArray.push(
-                <Icon name={this.props.halfIcon} />
-            );
-
-            return jsxArray;
-        }
-
-        else if(rating >= noOfStars) {
-            jsxArray.push(
-                <Icon name={this.props.fullIcon} />
-            );
-            
-            return this.starMaker(jsxArray, (noOfStars - 1), rating)
-        }
-
-        else{
-            if((rating - noOfStars) == -0.5){
-                jsxArray.push(
-                    <Icon name={this.props.halfIcon} />
-                );
-            } else {
-                jsxArray.push(
-                    <Icon name={this.props.fullIcon} />
-                );
-            }
-
-            return this.starMaker(jsxArray, (noOfStars - 1), rating)
-        }
-    },
+  getDefaultProps: function() {
+    return {
+      stars: 5,
+      rating: 0,
+      fullIcon: 'full-star',
+      halfIcon: 'half-star',
+      emptyIcon : 'empty-star',
+    };
+  },
 
 
-    render: function () {
-        var starRating = this.starMaker([] , this.props.stars , this.props.rating );
+  //Sci-Fi nerds will know about star maker!
+  starMaker: function (totalStars, rating) {
+    var ret = [];
 
-        return (
-            <div className="star-rating">
-              {starRating}
-            </div>
+    while (0 < rating) {
+      if (0.5 === rating) {
+        ret.push(
+          <Icon name={this.props.halfIcon} />
         );
+      } else {
+        ret.push(
+          <Icon name={this.props.fullIcon} />
+        );        
+      }
 
-
+      totalStars--;
+      rating--;
     }
 
+    while (totalStars-- > 0) {
+      ret.push(
+        <Icon name={this.props.emptyIcon} />
+      );
+    }
+
+    return ret;
+  },
+
+
+  render: function () {
+    var starIcons = this.starMaker(this.props.stars, this.props.rating );
+
+    return (
+        <div className="star-rating">
+          {starIcons}
+        </div>
+    );
+  }
 });
 
