@@ -9,7 +9,6 @@ module.exports = React.createClass({
     rating : React.PropTypes.number,
     fullIcon : React.PropTypes.string,
     halfIcon : React.PropTypes.string,
-    emptyIcon : React.PropTypes.string,
   },
 
   getDefaultProps: function() {

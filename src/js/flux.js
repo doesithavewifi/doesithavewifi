@@ -12,7 +12,7 @@ var utils = require('./utils');
 
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
 
-const CACHE_ENABLED = true;
+const CACHE_ENABLED = false;
 
 
 class AppActions extends Actions {
@@ -106,20 +106,42 @@ class AppStore extends Store {
     keys.forEach((key) => {
       var slugified = utils.slugify(key);
 
+      var val = item[key];
+
       switch (slugified) {
         case 'opening_times':
-          ret[slugified] = utils.parseOpeningTimes(item[key]);
+          val = utils.parseOpeningTimes(item[key]);
           break;
         case 'affordability':
-          ret[slugified] = utils.parseAffordability(item[key]);
+          val = utils.parseAffordability(item[key]);
           break;
-        default:
-          ret[slugified] = item[key];
+        case 'ambience':
+        case 'desk_chair':
+        case 'drinks_quality':
+        case 'editor_rating':
+        case 'food_snack_selection':
+        case 'quietness':
+        case 'wifi_quality':
+        case 'toilet_hygiene':
+          var val = parseFloat(item[key]);
+          if (Number.isNaN(val)) {
+            val = 0;
+          }
+          break;
+        case 'pay_for_power':
+        case 'power_outlet':
+        case 'serves_alcohol':
+        case 'smoking_area':
+          val = ('true' === val.toLowerCase());
       }
+
+      ret[slugified] = val;
     });
 
     return ret;
   }
+
+
 
 
 }
