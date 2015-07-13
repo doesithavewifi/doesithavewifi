@@ -14,7 +14,7 @@ module.exports = React.createClass({
   render: function() {   
     // icons not working yet so we output text for now
     return (
-      <i className={`icon-${this.props.name}`}>{this.props.name}</i>
+      <i className={`icon-${this.props.name}`} />
     );
   }
 
