@@ -3,9 +3,9 @@ var React = require('react');
 var Router = require('react-router'),
   Link = Router.Link;
 
-var DataElement = require('./dataElement');
-
-var Stars = require('./stars');
+var DataElement = require('./dataElement'),
+  Stars = require('./stars'),
+  utils = require('../../utils');
 
 module.exports = React.createClass({
   propTypes: {
@@ -21,9 +21,7 @@ module.exports = React.createClass({
   render: function() {    
     var item = this.props.item;
 
-    var wifiDescription = (
-      <div>test</div>
-    );
+    var wifiDescription = utils.generateWifiDescription(item.wifi_quality);
 
     return (
       <Link className="item" to="cafe" params={ {id:item.slug} } key={item.slug}>
