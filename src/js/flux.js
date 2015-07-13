@@ -7,6 +7,9 @@ import FluxComponent from 'flummox/component';
 
 import { Tabletop } from 'tabletop';
 
+var utils = require('./utils');
+
+
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
 
 const CACHE_ENABLED = false;
@@ -62,12 +65,12 @@ class AppStore extends Store {
     Tabletop.init({ 
       key: SPREADSHEET_URL,
       callback: _.bind(function(data, tabletop) {
-        console.log('Got entries: ' + data.length);
-
         var objData = {};
-        data.forEach(function(d) {
-          objData[d.Slug] = d;
+        data.forEach( (d) => {
+          objData[d.Slug] = this._parse(d);
         });
+
+        console.log('Got entries', objData);
 
         this.setState({
           appDatabase: objData,
@@ -91,6 +94,17 @@ class AppStore extends Store {
       viewType: viewType
     });
   }
+
+
+  _parse (item) {
+    var ret = _.extend({}, item);
+
+    ret.openingTimes = utils.parseOpeningTimes(ret['Opening times']);
+
+    return ret;
+  }
+
+
 }
 
 
