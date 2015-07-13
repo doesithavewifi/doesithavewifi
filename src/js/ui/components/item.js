@@ -26,21 +26,21 @@ module.exports = React.createClass({
     );
 
     return (
-      <Link className="item" to="cafe" params={ {id:item.Slug} } key={item.Slug}>
+      <Link className="item" to="cafe" params={ {id:item.slug} } key={item.slug}>
         <DataElement className="name">
-          {item['Name']}
+          {item.name}
         </DataElement>
         <DataElement className="rating">
-          <Stars stars={5} rating={item['Editor Rating']}  />
+          <Stars stars={5} rating={item.editor_rating}  />
         </DataElement>
         <DataElement className="wifi" popup={wifiDescription}>
-          {item['Wifi Quality']}
+          {item.wifi_quality}
         </DataElement>
         <DataElement className="cost">
-          {item['Affordability(Latte/Tea/HC)']}
+          {item.affordability}
         </DataElement>
         <DataElement className="location">
-          {item['Closest Station']}
+          {item.closest_station}
         </DataElement>
       </Link>
     );    

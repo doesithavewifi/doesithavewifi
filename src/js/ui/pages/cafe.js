@@ -19,7 +19,11 @@ module.exports = React.createClass({
 
       var id = this.getParams().id;
       var item = this.props.appDatabase[id];
-      var heroUrl = `/img/cafes/${id}.jpg`;
+
+      var heroUrl = "/img/cafes/default-header.jpg";
+      if (item.image1) {
+        heroUrl = item.image1;
+      }
 
       var nav = [
         {
@@ -38,28 +42,28 @@ module.exports = React.createClass({
       
       content = 
         <div className="cafe">
-          <Hero heroUrl={heroUrl} title={item['Name']} rating={item['Editor Rating']} address={item['Address']}/>
+          <Hero heroUrl={heroUrl} title={item.name} rating={item.editor_rating} address={item.address}/>
           <main>
             <section className="opening-times" id="opening-times">
               <SectionHeader>Opening Times</SectionHeader>
             </section>
             <SectionHeader>Ratings &amp; Information</SectionHeader>
             <section className="information" id="information">
-              <p>{item['Website']}</p>
-              <p>{item['Description']}</p>
-              <p>{item['Closest Station']}</p>
+              <p>{item.website}</p>
+              <p>{item.description}</p>
+              <p>{item.closest_station}</p>
             </section>
             
             <section className="location" id="map">
               Map goes here
             </section>
             <section className="ratings">
-              <RatingItem title="Wifi Quality" value={item['Wifi Quality']}></RatingItem>
-              <RatingItem title="Ambience" value={item['Ambience']}></RatingItem>
-              <RatingItem title="Food/snack selection" value={item['Food/snack selection']}></RatingItem>
-              <RatingItem title="Power Outlet" value={item['Power Outlet']}></RatingItem>
-              <RatingItem title="Toilet Hygiene" value={item['Toilet hygiene']}></RatingItem>
-              <RatingItem title="Ergonomics" value={item['Desk/chair']}></RatingItem>
+              <RatingItem title="Wifi Quality" value={item.wifi_quality}></RatingItem>
+              <RatingItem title="Ambience" value={item.ambience}></RatingItem>
+              <RatingItem title="Food/snack selection" value={item.food_snack_selection}></RatingItem>
+              <RatingItem title="Power Outlet" value={item.power_outlet}></RatingItem>
+              <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene}></RatingItem>
+              <RatingItem title="Ergonomics" value={item.desk_chair}></RatingItem>
             </section>
             
           </main>
