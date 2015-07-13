@@ -1,9 +1,11 @@
 var React = require('react');
 
+var Stars = require('../components/stars');
+
 module.exports = React.createClass({
   render: function() {    
     if(this.props.rating){
-      var rating = <div className="editor-rating">{this.props.rating}</div>
+      var rating = <div className="editor-rating"><Stars rating={this.props.rating} /></div>
     }
     if(this.props.address){
       var address = 

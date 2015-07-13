@@ -64,18 +64,26 @@
     
     > .title {
       color: white;
+      font-family: Open Sans;
       text-align: center;
+      margin-bottom: 10px;
       font-size: 3.2rem;
       font-weight: bold;
     }
     > .address {
       color: white;
+      font-size: 1.8rem;
       text-align: center;
     }
     
     > .editor-rating {
       text-align: center;
       color: white;
+      font-size: 28px;
+      margin-bottom: 15px;
+      .icon-full-star {
+        padding: 2px;
+      }
     }
   }
 }
@@ -96,43 +104,18 @@ i {
   }
 }
 
-/* Sub Nav */
+/* Section Header */
 
-.sub-nav {
+.section-header {
   background: $blue;
+  font-family: Montserrat;
   padding: 20px 0;
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-
-  &:before, &:after {
-    content: "";
-    background: $blue;
-    height: 100%;
-    width: 1500px;
-    top: 0;
-    position: absolute;
-  }
-  
-  &:before {
-    right: 100%;
-  }
-  
-  &:after {
-    left: 100%;
-  }
-  
-  > a {
-    flex-size: 1;
-    height: 100%;
-    width: 33.3333%;
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    color: white
-    text-decoration: none;
-    text-align: center;
-  }
+  text-transform: uppercase;
 }
 
 

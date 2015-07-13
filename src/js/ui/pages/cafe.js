@@ -4,7 +4,7 @@ var Router = require('react-router'),
   State = Router.State,
   Hero = require('../components/hero'),
   RatingItem = require('../components/ratingItem'),
-  SubNav = require('../components/subNav');
+  SectionHeader = require('../components/sectionHeader');
 
 import { FluxComponent } from '../../flux';
 
@@ -40,15 +40,16 @@ module.exports = React.createClass({
         <div className="cafe">
           <Hero heroUrl={heroUrl} title={item['Name']} rating={item['Editor Rating']} address={item['Address']}/>
           <main>
-            <SubNav nav={nav}/>
+            <section className="opening-times" id="opening-times">
+              <SectionHeader>Opening Times</SectionHeader>
+            </section>
+            <SectionHeader>Ratings &amp; Information</SectionHeader>
             <section className="information" id="information">
               <p>{item['Website']}</p>
               <p>{item['Description']}</p>
               <p>{item['Closest Station']}</p>
             </section>
-            <section className="opening-times" id="opening-times">
-              Opening Times
-            </section>
+            
             <section className="location" id="map">
               Map goes here
             </section>
