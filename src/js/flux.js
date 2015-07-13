@@ -136,6 +136,7 @@ class AppStore extends Store {
         case 'serves_alcohol':
         case 'smoking_area':
           val = ('true' === val.toLowerCase());
+          break;
       }
 
       ret[slugified] = val;
