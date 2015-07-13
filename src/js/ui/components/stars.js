@@ -18,7 +18,6 @@ module.exports = React.createClass({
       rating: 0,
       fullIcon: 'full-star',
       halfIcon: 'half-star',
-      emptyIcon : 'empty-star',
     };
   },
 
@@ -38,14 +37,7 @@ module.exports = React.createClass({
         );        
       }
 
-      totalStars--;
       rating--;
-    }
-
-    while (totalStars-- > 0) {
-      ret.push(
-        <Icon name={this.props.emptyIcon} />
-      );
     }
 
     return ret;
@@ -56,7 +48,7 @@ module.exports = React.createClass({
     var starIcons = this.starMaker(this.props.stars, this.props.rating );
 
     return (
-        <div className="star-rating">
+        <div className="star-rating" data-rating={this.props.rating}>
           {starIcons}
         </div>
     );
