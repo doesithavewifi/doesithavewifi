@@ -29,7 +29,7 @@ module.exports = React.createClass({
       }
 
       if(item.description) {
-        var description = <p className="cafe-description">{item.description}</p>
+        description = <p className="cafe-description">{item.description}</p>
       }
 
       if(item.opening_times) {
@@ -58,11 +58,11 @@ module.exports = React.createClass({
           <Hero heroUrl={heroUrl} title={item.name} rating={item.editor_rating} address={item.address}/>
           <main>
             {description}
-            <section className="opening-times" id="opening-times">
+            <section id="opening-times">
               <SectionHeader>Opening Times</SectionHeader>
               {openingTimes}
             </section>
-            <section className="information" id="information">
+            <section id="information">
               <SectionHeader>Ratings &amp; Information</SectionHeader>
               <RatingItem title="Wifi Quality" value={item.wifi_quality}></RatingItem>
               <RatingItem title="Ambience" value={item.ambience}></RatingItem>
@@ -71,10 +71,10 @@ module.exports = React.createClass({
               <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene}></RatingItem>
               <RatingItem title="Ergonomics" value={item.desk_chair}></RatingItem>
               <RatingItem title="Website" value={item.website}></RatingItem>
-              <RatingItem title="Closest Station" value={item.closest_station}></RatingItem>
+              <RatingItem title="Closest Station" value={item.closest_station.original}></RatingItem>
             </section>
             
-            <section className="location" id="map">
+            <section id="map">
               <SectionHeader>Map</SectionHeader>
               Map goes here
             </section>

@@ -18,6 +18,28 @@ exports.slugify = function(str) {
 
 
 
+exports.parseClosestStation = function(str) {  
+  var ret = {
+    original: str,
+  };
+
+  var matches = (str || '').match(/([^,]+)([\s,]+([^,]+))?/i);
+
+  if (!matches || 1 > matches.length) {
+    return ret;
+  }
+
+  ret.station = matches[1];
+
+  if (2 < matches.length) {
+    ret.exit = matches.pop();
+  }
+
+  return ret;
+};
+
+
+
 
 /**
  * Parse opening times string into object.

@@ -1,14 +1,16 @@
 var React = require('react');
+var _ = require('lodash');
 
 module.exports = React.createClass({
 
   render: function() { 
-    var times;
     var data = this.props.data;
-    
-    for (var prop in data) {
+
+    var times = _.map(data, function(val, key){
       let day;
-      switch (prop) {
+      let time;
+
+      switch (key) {
         case "sun":
           day = "Sunday";
           break;
@@ -31,15 +33,23 @@ module.exports = React.createClass({
           day = "Saturday";
           break;
       }
-      times += day + " ";
 
-      if(data[prop]) {
-        times += data[prop].from + " " + data[prop].to;
+      if(data[key]) {
+        time = <div className="time">{data[key].from} - {data[key].to}</div>
+      } else {
+        time = <div className="time">Closed</div>
       }
-    }
+
+      return (
+        <div className="day">
+          <div className="day-name">{day}</div>
+          {time}
+        </div>
+      )
+    });
 
     return (
-      <div className="openingTimes">
+      <div className="opening-times">
         {times}
       </div>
     );    

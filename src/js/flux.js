@@ -110,18 +110,22 @@ class AppStore extends Store {
 
       switch (slugified) {
         case 'opening_times':
-          val = utils.parseOpeningTimes(item[key]);
+          val = utils.parseOpeningTimes(val);
           break;
         case 'affordability':
-          val = utils.parseAffordability(item[key]);
+          val = utils.parseAffordability(val);
           break;
-        case 'ambience':
+        case 'closest_station':
+          val = utils.parseClosestStation(val);
+          break;
+        case 'ambience':        
         case 'desk_chair':
         case 'drinks_quality':
         case 'editor_rating':
         case 'food_snack_selection':
         case 'quietness':
         case 'wifi_quality':
+        case 'power_outlet':
         case 'toilet_hygiene':
           var val = parseFloat(item[key]);
           if (Number.isNaN(val)) {
@@ -129,7 +133,6 @@ class AppStore extends Store {
           }
           break;
         case 'pay_for_power':
-        case 'power_outlet':
         case 'serves_alcohol':
         case 'smoking_area':
           val = ('true' === val.toLowerCase());

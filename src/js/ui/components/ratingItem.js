@@ -7,20 +7,21 @@ module.exports = React.createClass({
   render: function() {
     var rating;
     var value = this.props.value;
-    if(typeof value=== "number") {
-      rating = <Star rating={value} />
-    } else if(typeof value === "string") {
-      if(value.slice(0, 4) === "http") {
-        rating = <a href={value}>{value}</a>
-      } else {
-        rating = <p>{value}</p>
-      }
-    } else if(typeof value === "boolean") {
-      if(value === true) {
-        rating = <p class="boolean">Yes</p>
-      } else {
-        rating = <p class="boolean">No</p>
-      }
+
+    switch(typeof value) {
+      case 'number':
+        rating = <Star rating={value} />
+        break;
+      case 'string':
+        if(value.slice(0, 4) === "http") {
+          rating = <a href={value}>{value}</a>
+        } else {
+          rating = <p>{value}</p>
+        }
+        break;
+      case 'boolean':
+        rating = <p className="boolean">{value ? 'Yes': 'No' }</p>
+        break;
     }
     return (
       <div className="rating-item">
@@ -30,7 +31,7 @@ module.exports = React.createClass({
         </div>
       </div>
     );    
-  },
+  }
 });
 
 
