@@ -4,7 +4,8 @@ var Router = require('react-router'),
   State = Router.State,
   Hero = require('../components/hero'),
   RatingItem = require('../components/ratingItem'),
-  SectionHeader = require('../components/sectionHeader');
+  SectionHeader = require('../components/sectionHeader'),
+  OpeningTimes = require('../components/openingTimes');
 
 import { FluxComponent } from '../../flux';
 
@@ -17,12 +18,24 @@ module.exports = React.createClass({
 
     if(this.props.appDatabase){
 
-      var id = this.getParams().id;
-      var item = this.props.appDatabase[id];
+      var id = this.getParams().id,
+          item = this.props.appDatabase[id],
+          heroUrl = "/img/cafes/default-header.jpg",
+          description,
+          openingTimes;
 
-      var heroUrl = "/img/cafes/default-header.jpg";
       if (item.image1) {
         heroUrl = item.image1;
+      }
+
+      if(item.description) {
+        var description = <p className="cafe-description">{item.description}</p>
+      }
+
+      if(item.opening_times) {
+        openingTimes = <OpeningTimes data={item.opening_times} />
+      } else {
+        openingTimes = <p>No Opening Times data available</p>
       }
 
       var nav = [
@@ -44,28 +57,27 @@ module.exports = React.createClass({
         <div className="cafe">
           <Hero heroUrl={heroUrl} title={item.name} rating={item.editor_rating} address={item.address}/>
           <main>
+            {description}
             <section className="opening-times" id="opening-times">
               <SectionHeader>Opening Times</SectionHeader>
+              {openingTimes}
             </section>
-            <SectionHeader>Ratings &amp; Information</SectionHeader>
             <section className="information" id="information">
-              <p>{item.website}</p>
-              <p>{item.description}</p>
-              <p>{item.closest_station}</p>
-            </section>
-            
-            <section className="location" id="map">
-              Map goes here
-            </section>
-            <section className="ratings">
+              <SectionHeader>Ratings &amp; Information</SectionHeader>
               <RatingItem title="Wifi Quality" value={item.wifi_quality}></RatingItem>
               <RatingItem title="Ambience" value={item.ambience}></RatingItem>
               <RatingItem title="Food/snack selection" value={item.food_snack_selection}></RatingItem>
               <RatingItem title="Power Outlet" value={item.power_outlet}></RatingItem>
               <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene}></RatingItem>
               <RatingItem title="Ergonomics" value={item.desk_chair}></RatingItem>
+              <p>{item.website}</p>
+              <p>{item.closest_station}</p>
             </section>
             
+            <section className="location" id="map">
+              <SectionHeader>Map</SectionHeader>
+              Map goes here
+            </section>
           </main>
         </div>
       ;

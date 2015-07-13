@@ -46,7 +46,11 @@ exports.parseOpeningTimes = function(str) {
   var re = /([a-z]{3}(\-[a-z]{3})?):(\d{4}\-\d{4})/ig,
     match;
 
+  var hasValue = false;
+
   while(null !== (match = re.exec(str))) {
+    hasValue = true;
+
     var days = match[1].match(/[a-z]{3}/ig),
       times = match.pop().match(/\d{4}/ig);
 
@@ -73,7 +77,7 @@ exports.parseOpeningTimes = function(str) {
     }
   };
 
-  return ret;
+  return (hasValue) ? ret : null;
 };
 
 
