@@ -24,7 +24,7 @@ module.exports = React.createClass({
     ;
 
     return (
-      <a href={this.props.link} className="static-map">
+      <a href={this.props.link} target="_blank" className="static-map">
         <img src={url} />
       </a>
     );

@@ -103,10 +103,15 @@ $item {
 }
 
 .item > div {
+  padding: 5px;
   flex-basis: 0;
   flex-grow: 1;
   height: 100%;
   text-align: center;
+  
+  +below($mobile-max-width) {
+    font-size: 1.4rem;
+  }
   
   &.cost {
     +below($mobile-max-width) {
