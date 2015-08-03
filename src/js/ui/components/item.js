@@ -1,11 +1,12 @@
 var React = require('react');
 
 var Router = require('react-router'),
-  Link = Router.Link;
+    Link = Router.Link,
+    Utils = require('../../utils.js');
 
 var DataElement = require('./dataElement'),
-  Stars = require('./stars'),
-  utils = require('../../utils');
+    Stars = require('./stars'),
+    utils = require('../../utils');
 
 module.exports = React.createClass({
   propTypes: {
@@ -29,13 +30,13 @@ module.exports = React.createClass({
           {item.name}
         </DataElement>
         <DataElement className="rating">
-          <Stars stars={5} rating={item.editor_rating}  />
+          <Stars rating={item.editor_rating}  />
         </DataElement>
         <DataElement className="wifi" popup={wifiDescription}>
-          <Stars stars={5} rating={item.wifi_quality} fullIcon="wifi" halfIcon="shit-wifi" />
+          <Stars rating={item.wifi_quality} fullIcon="wifi" halfIcon="shit-wifi" />
         </DataElement>
         <DataElement className="cost">
-          {item.affordability.avge}
+          <Stars rating={utils.getRatingFromPrice(item.affordability.avge)} />
         </DataElement>
         <DataElement className="location">
           {item.closest_station.station}

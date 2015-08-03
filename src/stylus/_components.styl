@@ -154,6 +154,10 @@ i {
   justify-content: space-around;
   border-bottom: 1px solid $grey-light;
   
+  +below($tablet-max-width) {
+    width: 100%;
+  }
+  
   h3 {
     font-size: 1.8rem;
     flex-basis: 0;
@@ -169,6 +173,21 @@ i {
       // overflow: hidden; 
       // white-space: nowrap;
     }
+  }
+}
+
+.boolean {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  
+  &.yes {
+    color: green;
+  }
+  
+  &.no {
+    color: red;
   }
 }
 

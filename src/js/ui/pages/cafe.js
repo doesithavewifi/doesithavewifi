@@ -5,7 +5,9 @@ var Router = require('react-router'),
   Hero = require('../components/hero'),
   RatingItem = require('../components/ratingItem'),
   SectionHeader = require('../components/sectionHeader'),
-  OpeningTimes = require('../components/openingTimes');
+  OpeningTimes = require('../components/openingTimes'),
+  Utils = require('../../utils'),
+  Loader = require('../components/loader');
 
 import { FluxComponent } from '../../flux';
 
@@ -66,14 +68,18 @@ module.exports = React.createClass({
             </section>
             <section id="information">
               <SectionHeader>Ratings &amp; Information</SectionHeader>
-              <RatingItem title="Wifi Quality" value={item.wifi_quality}></RatingItem>
-              <RatingItem title="Ambience" value={item.ambience}></RatingItem>
-              <RatingItem title="Food/snack selection" value={item.food_snack_selection}></RatingItem>
-              <RatingItem title="Power Outlet" value={item.power_outlet}></RatingItem>
-              <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene}></RatingItem>
-              <RatingItem title="Ergonomics" value={item.desk_chair}></RatingItem>
-              <RatingItem title="Website" value={item.website}></RatingItem>
-              <RatingItem title="Closest Station" value={item.closest_station.original}></RatingItem>
+              <RatingItem title="Affordability" value={Utils.getRatingFromPrice(item.affordability.avge)} />
+              <RatingItem title="Wifi Quality" value={item.wifi_quality} />
+              <RatingItem title="Ambience" value={item.ambience} />
+              <RatingItem title="Food/snack selection" value={item.food_snack_selection} />
+              <RatingItem title="Power Outlet" value={item.power_outlet} />
+              <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene} />
+              <RatingItem title="Ergonomics" value={item.desk_chair} />
+              <RatingItem title="Website" value={item.website} />
+              <RatingItem title="Closest Station" value={item.closest_station.original} />
+              <RatingItem title="Minimum Order" value={item.minimum_order} />
+              <RatingItem title="Smoking Area" value={item.smoking_area} />
+              <RatingItem title="Serves Alcohol" value={item.smoking_area} />
             </section>
             
             <section id="map">
@@ -84,7 +90,7 @@ module.exports = React.createClass({
         </div>
       ;
     } else {
-      content = <div>Loading data...</div>;
+      content = <Loader />
     }
 
     return (

@@ -163,6 +163,25 @@ exports.parseAffordability = function(str) {
   return ret;
 };
 
+/**
+ * Parse affordability string into object.
+ *
+ * Example: `120/?/200`
+ */
+exports.getRatingFromPrice = function(num) {
+  if(num <= 60) {
+    return 5;
+  } else if(num <= 100) {
+    return 4;
+  } else if(num <= 150) {
+    return 3;
+  } else if(num <= 200) {
+    return 2;
+  } else {
+    return 1;
+  }
+}
+
 
 
 

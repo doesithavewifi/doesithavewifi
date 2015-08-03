@@ -12,25 +12,25 @@ module.exports = React.createClass({
 
       switch (key) {
         case "sun":
-          day = "Sunday";
+          day = "Sunday:";
           break;
         case "mon":
-          day = "Monday";
+          day = "Monday:";
           break;
         case "tue":
-          day = "Tuesday";
+          day = "Tuesday:";
           break;
         case "wed":
-          day = "Wednesday";
+          day = "Wednesday:";
           break;
         case "thu":
-          day = "Thursday";
+          day = "Thursday:";
           break;
         case "fri":
-          day = "Friday";
+          day = "Friday:";
           break;
         case "sat":
-          day = "Saturday";
+          day = "Saturday:";
           break;
       }
 
