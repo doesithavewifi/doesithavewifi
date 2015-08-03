@@ -1,8 +1,7 @@
 var React = require('react');
 
 var Router = require('react-router'),
-    Link = Router.Link,
-    Utils = require('../../utils.js');
+    Link = Router.Link;
 
 var DataElement = require('./dataElement'),
     Stars = require('./stars'),
@@ -18,7 +17,6 @@ module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
-      userGeo: null,
       item: {},
     };
   },
@@ -31,25 +29,12 @@ module.exports = React.createClass({
     var affordability = utils.getRatingFromPrice(item.affordability.avge);
 
     var distance = null;
-    if (this.props.userGeo) {
-      if (!item.coords) {
-        distance = <UnknownValue />;
-      } else {
-        // calculate distance
-        let dist = Utils.calculateGeoDistance(
-          this.props.userGeo.latitude,
-          this.props.userGeo.longitude,
-          item.coords.lat,
-          item.coords.lng
-        );
-
-        // format to 1 decimal place
-        distance = (
-         <DataElement className="distance">
-           {dist}
-         </DataElement>   
-        );
-      }
+    if (!item.distance_from_user) {
+      distance = <UnknownValue />
+    } else {
+      distance = (
+       <DataElement className="distance">{item.distance_from_user}</DataElement>   
+      );
     }
 
     return (

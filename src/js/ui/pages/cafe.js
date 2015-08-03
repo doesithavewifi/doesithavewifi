@@ -65,16 +65,6 @@ module.exports = React.createClass({
 
       if (item.coords) {
         map = <StaticMap lat={item.coords.lat} lng={item.coords.lng} link={item.google_maps_link}/>
-
-        if (this.props.userGeo) {
-          // calculate distance
-          distance = Utils.calculateGeoDistance(
-            this.props.userGeo.latitude,
-            this.props.userGeo.longitude,
-            item.coords.lat,
-            item.coords.lng
-          );
-        }
       }
       
       content = 
@@ -84,7 +74,7 @@ module.exports = React.createClass({
             title={item.name} 
             rating={item.editor_rating} 
             address={item.address} 
-            distance={distance} />
+            distance={item.distance_from_user} />
           <main>
             {description}
             <section id="opening-times">

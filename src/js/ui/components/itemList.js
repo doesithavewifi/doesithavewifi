@@ -4,6 +4,36 @@ var React = require('react');
 var Item = require('./item');
 var ItemHeaders = require('./itemHeaders');
 
+const DEFAULT_COLUMNS = [
+  {
+    key: 'name',
+    label: 'Name',
+    cssName: 'name',
+  },
+  {
+    key: 'editor_rating',
+    label: 'Editor\'s rating',
+    cssName: 'rating',
+  },
+  {
+    key: 'wifi_quality',
+    label: 'WiFi Quality',
+    cssName: 'wifi',
+  },
+  {
+    key: 'affordability',
+    label: 'Affordability',
+    cssName: 'cost',
+  },
+  {
+    key: 'closest_station',
+    label: 'Nearest MRT',
+    cssName: 'location',
+  },
+];
+
+
+
 module.exports = React.createClass({
   propTypes: {
     userGeo: React.PropTypes.object,
@@ -22,9 +52,18 @@ module.exports = React.createClass({
       return ( <Item item={item} userGeo={this.props.userGeo} /> );
     });
 
+    var columns = [].concat(DEFAULT_COLUMNS);
+    if (this.props.userGeo) {
+      columns.push({
+        key: 'geo_distance',
+        label: 'Distance',
+        cssName: 'distance',
+      });
+    }
+
     return (
       <div className="item-list-wrapper">
-        <ItemHeaders userGeo={this.props.userGeo} />
+        <ItemHeaders columns={columns} />
         <div className="item-list">
           {renderedItems}
         </div>

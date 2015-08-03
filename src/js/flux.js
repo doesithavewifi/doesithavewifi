@@ -56,9 +56,14 @@ class AppStore extends Store {
         (position) => {
           console.log('Got geo position', position);
 
+          let userGeo = position.coords;
+
+          this._calculateGeoDistances(userGeo, this.state.appDatabase);
+
           this.setState({
-            userGeo: position.coords
+            userGeo: userGeo
           });
+
         }, (err) => {
           console.error('Error fetching geo location', err);
         }, {
@@ -110,6 +115,8 @@ class AppStore extends Store {
 
         console.log('Got entries', objData);
 
+        this._calculateGeoDistances(this.state.userGeo, objData);
+
         this.setState({
           appDatabase: objData,
         });
@@ -130,6 +137,38 @@ class AppStore extends Store {
     this.setState({
       viewType: viewType
     });
+  }
+
+  /**
+   * Calculate distance from user to each item in list
+   *
+   * Each item's `distance_from_user` val will be set upon completion.
+   * 
+   * @param  {[type]} point [description]
+   * @param  {[type]} items [description]
+   * @return {[type]}       [description]
+   */
+  _calculateGeoDistances(userGeo, items) {
+    if (!userGeo) {
+      return;
+    }
+
+    console.debug('Calculate Geo distances');
+
+    _.each(items || {}, (item, key) => {
+      if (item.coords) {
+        item.distance_from_user = utils.calculateGeoDistance(
+          userGeo.latitude,
+          userGeo.longitude,
+          item.coords.latitude,
+          item.coords.longitude
+        );
+      } else {
+        item.distance_from_user = null;
+      }
+    });
+
+    this.forceUpdate();
   }
 
 
@@ -184,8 +223,8 @@ class AppStore extends Store {
     // lat+lng -> coords
     if (ret.latitude && ret.longitude) {
       ret.coords = {
-        lat: ret.latitude,
-        lng: ret.longitude,
+        latitude: ret.latitude,
+        longitude: ret.longitude,
       };
     } else {
       ret.coords = null;
