@@ -1,9 +1,22 @@
 var React = require('react');
 var Link = require('react-router').Link;
 
-var Logo = require('./logo');
+var Logo = require('./logo'),
+    About = require('./about');
 
 module.exports = React.createClass({
+  getInitialState: function(){
+    return {
+      showAbout: false
+    }
+  },
+
+  toggleAbout: function(){
+    this.setState({
+      showAbout: !this.state.showAbout
+    })
+  },
+
   render: function() {    
     return (
       <header className="header">
@@ -13,9 +26,10 @@ module.exports = React.createClass({
         </div>
         <nav className="main-nav">
           <ul>
-            <li><Link to="about">About</Link></li>
+            <li><a href="#" onClick={this.toggleAbout}>About</a><About show={this.state.showAbout} toggleAbout={this.toggleAbout} /></li>
           </ul>
         </nav>
+        
       </header>
     );    
   },
