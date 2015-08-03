@@ -78,12 +78,10 @@ class AppStore extends Store {
           appDatabase: objData,
         });
 
-        if (CACHE_ENABLED) {
-          browserStore.set('database', {
-            updated: new Date(),
-            entries: objData,
-          });
-        }
+        browserStore.set('database', {
+          updated: new Date(),
+          entries: objData,
+        });
 
       }, this),
       callbackContext: this,
@@ -128,7 +126,7 @@ class AppStore extends Store {
         case 'power_outlet':
         case 'toilet_hygiene':
           var val = parseFloat(item[key]);
-          if (Number.isNaN(val)) {
+          if (isNaN(val)) {
             val = 0;
           }
           break;

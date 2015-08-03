@@ -141,7 +141,7 @@ exports.parseAffordability = function(str) {
   drinkTypes.forEach(function(drinkType, index) {
     var cost = parseInt(values[index] || null);
 
-    if (!Number.isNaN(cost)) {
+    if (!isNaN(cost)) {
       ret[drinkType] = cost;
     }
   });
