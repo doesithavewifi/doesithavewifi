@@ -133,6 +133,10 @@ i {
   position: relative;
   text-transform: uppercase;
   margin-bottom: 20px;
+  
+  &.no-marg {
+    margin-bottom: 0;
+  }
 }
 
 /* Cafe Description */
@@ -230,6 +234,24 @@ i {
   left: 0;
   background: transparent;
   z-index: 9999;
+}
+
+/* Static Map */
+
+.static-map {
+  
+  +below($mobile-max-width) {
+    position relative
+    display block
+    height 300px
+    overflow hidden
+    
+    > img {
+      absoluteCenterer()
+      width 600px
+      max-width 9999px
+    }
+  }
 }
 
 /* About Page */

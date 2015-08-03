@@ -66,7 +66,7 @@ module.exports = React.createClass({
         let latitude = parseFloat(item.latitude),
           longitude = parseFloat(item.longitude);
 
-        map = <StaticMap lat={latitude} lng={longitude} />
+        map = <StaticMap lat={latitude} lng={longitude} link={item.google_maps_link}/>
       }
       
       content = 
@@ -96,7 +96,7 @@ module.exports = React.createClass({
             </section>
             
             <section id="map">
-              <SectionHeader>Map</SectionHeader>
+              <SectionHeader className="no-marg">Map</SectionHeader>
               {map}
             </section>
           </main>

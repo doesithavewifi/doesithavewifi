@@ -7,6 +7,7 @@ module.exports = React.createClass({
   propTypes: {
     lat : React.PropTypes.number.isRequired,
     lng : React.PropTypes.number.isRequired,
+    link: React.PropTypes.string.isRequired
   },
 
   render: function() {
@@ -23,7 +24,9 @@ module.exports = React.createClass({
     ;
 
     return (
-      <img className="static-map" onClick={this._openExternalMap} src={url} />
+      <a href={this.props.link} className="static-map">
+        <img src={url} />
+      </a>
     );
   }
 });
