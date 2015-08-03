@@ -118,6 +118,12 @@ $item {
       display none
     }
   }
+  
+  &.wifi {
+    +below($mobile-max-width) {
+      display none
+    }
+  }
 }
 
 .item-header-wrapper {
@@ -147,6 +153,12 @@ $item {
   }
   
   .cost-header {
+    +below($mobile-max-width) {
+      display none
+    }
+  }
+  
+  .wifi-header {
     +below($mobile-max-width) {
       display none
     }
