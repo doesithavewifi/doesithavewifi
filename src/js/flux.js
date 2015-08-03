@@ -10,7 +10,7 @@ import { Tabletop } from 'tabletop';
 var utils = require('./utils');
 
 
-const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d1/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
 
 const CACHE_ENABLED = false;
 

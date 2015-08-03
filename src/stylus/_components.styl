@@ -244,9 +244,13 @@ i {
 .error-message {
   text-align: center;
   color: $red;
-  font-size: 3rem;
+  font-size: 5rem;
   padding: 1em;
   z-index: 9998;
+  
+  +below($mobile-max-width) {
+    font-size: 3rem;
+  }
   
   p {
     margin: 1em 0;

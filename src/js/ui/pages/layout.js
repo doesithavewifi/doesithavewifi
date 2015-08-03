@@ -15,8 +15,8 @@ module.exports = React.createClass({
       if (this.props.timedOut) {
         let errorText = (
           <div>
-            <p>Sorry, it appears to be taking too long to load data!</p>
-            <p>You could try refreshing the page.</p>
+            <p>Sorry, it appears to be taking too long to load!</p>
+            <p>Try refreshing the page.</p>
           </div>
         );
 
