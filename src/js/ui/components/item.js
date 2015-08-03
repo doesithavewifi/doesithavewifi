@@ -6,6 +6,7 @@ var Router = require('react-router'),
 
 var DataElement = require('./dataElement'),
     Stars = require('./stars'),
+    Str = require('./str'),
     utils = require('../../utils');
 
 module.exports = React.createClass({
@@ -24,6 +25,8 @@ module.exports = React.createClass({
 
     var wifiDescription = utils.generateWifiDescription(item.wifi_quality);
 
+    var affordability = utils.getRatingFromPrice(item.affordability.avge);
+
     return (
       <Link className="item" to="cafe" params={ {id:item.slug} } key={item.slug}>
         <DataElement className="name">
@@ -36,10 +39,10 @@ module.exports = React.createClass({
           <Stars rating={item.wifi_quality} fullIcon="wifi" halfIcon="shit-wifi" />
         </DataElement>
         <DataElement className="cost">
-          <Stars rating={utils.getRatingFromPrice(item.affordability.avge)} />
+          <Stars rating={affordability} />
         </DataElement>
         <DataElement className="location">
-          {item.closest_station.station}
+          <Str value={item.closest_station.station} />
         </DataElement>
       </Link>
     );    

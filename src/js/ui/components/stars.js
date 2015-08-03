@@ -1,6 +1,7 @@
 var React = require('react');
 
-var Icon = require('./icon');
+var Icon = require('./icon'),
+  UnknownValue = require('./unknownValue');
 
 
 module.exports = React.createClass({
@@ -44,13 +45,20 @@ module.exports = React.createClass({
 
 
   render: function () {
-    var starIcons = this.starMaker(this.props.stars, this.props.rating );
+    if (isNaN(this.props.rating) || (1 > this.props.rating)) {
+      return (
+        <UnknownValue />
+      );
+    } else {
+      let starIcons = this.starMaker(this.props.stars, this.props.rating );
 
-    return (
-        <div className="star-rating" data-rating={this.props.rating}>
-          {starIcons}
-        </div>
-    );
+      return (
+          <div className="star-rating" data-rating={this.props.rating}>
+            {starIcons}
+          </div>
+      );
+    }
   }
 });
+
 
