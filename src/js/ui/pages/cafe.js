@@ -60,18 +60,31 @@ module.exports = React.createClass({
         }
       ];
 
-      let map = (<p>Map currently not available</p>);
+      var map = (<p>Map currently not available</p>),
+        distance = null;
 
-      if (_.get(item.latitude, 'length', 0) && _.get(item.longitude, 'length', 0)) {
-        let latitude = parseFloat(item.latitude),
-          longitude = parseFloat(item.longitude);
+      if (item.coords) {
+        map = <StaticMap lat={item.coords.lat} lng={item.coords.lng} link={item.google_maps_link}/>
 
-        map = <StaticMap lat={latitude} lng={longitude} link={item.google_maps_link}/>
+        if (this.props.userGeo) {
+          // calculate distance
+          distance = Utils.calculateGeoDistance(
+            this.props.userGeo.latitude,
+            this.props.userGeo.longitude,
+            item.coords.lat,
+            item.coords.lng
+          );
+        }
       }
       
       content = 
         <div className="cafe">
-          <Hero heroUrl={heroUrl} title={item.name} rating={item.editor_rating} address={item.address}/>
+          <Hero 
+            heroUrl={heroUrl} 
+            title={item.name} 
+            rating={item.editor_rating} 
+            address={item.address} 
+            distance={distance} />
           <main>
             {description}
             <section id="opening-times">
@@ -102,8 +115,6 @@ module.exports = React.createClass({
           </main>
         </div>
       ;
-    } else {
-      content = <Loader />
     }
 
     return (

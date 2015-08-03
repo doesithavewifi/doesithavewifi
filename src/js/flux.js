@@ -16,9 +16,14 @@ const CACHE_ENABLED = false;
 
 
 class AppActions extends Actions {
+  start () {
+    return {};
+  }
+
   loadDatabase() {
     return {};
   }
+
   setView(viewType) {
     return viewType;
   }
@@ -41,6 +46,27 @@ class AppStore extends Store {
       appDatabase: null,
       appViewType: 'listing',
     };
+  }
+
+  start() {
+    this.loadDatabase();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log('Got geo position', position);
+
+          this.setState({
+            userGeo: position.coords
+          });
+        }, (err) => {
+          console.error('Error fetching geo location', err);
+        }, {
+          enableHighAccuracy: false,
+          timeout: 5000, /* spend no more than 2 seconds on this */
+          maximumAge: 0, /* don't return cached position info */
+        });
+    }
   }
 
   loadDatabase () {
@@ -118,6 +144,10 @@ class AppStore extends Store {
       var val = item[key];
 
       switch (slugified) {
+        case 'latitude':
+        case 'longitude':
+          val = (val && val.length) ? parseFloat(val) : null;
+          break;
         case 'opening_times':
           val = utils.parseOpeningTimes(val);
           break;
@@ -150,6 +180,18 @@ class AppStore extends Store {
 
       ret[slugified] = val;
     });
+
+    // lat+lng -> coords
+    if (ret.latitude && ret.longitude) {
+      ret.coords = {
+        lat: ret.latitude,
+        lng: ret.longitude,
+      };
+    } else {
+      ret.coords = null;
+    }
+    delete ret.latitude;
+    delete ret.longitude;
 
     return ret;
   }

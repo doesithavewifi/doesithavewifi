@@ -7,15 +7,18 @@ var Router = require('react-router'),
 var DataElement = require('./dataElement'),
     Stars = require('./stars'),
     Str = require('./str'),
+    UnknownValue = require('./unknownValue'),
     utils = require('../../utils');
 
 module.exports = React.createClass({
   propTypes: {
+    userGeo: React.PropTypes.object,
     item : React.PropTypes.object,
   },
 
   getDefaultProps: function() {
     return {
+      userGeo: null,
       item: {},
     };
   },
@@ -26,6 +29,28 @@ module.exports = React.createClass({
     var wifiDescription = utils.generateWifiDescription(item.wifi_quality);
 
     var affordability = utils.getRatingFromPrice(item.affordability.avge);
+
+    var distance = null;
+    if (this.props.userGeo) {
+      if (!item.coords) {
+        distance = <UnknownValue />;
+      } else {
+        // calculate distance
+        let dist = Utils.calculateGeoDistance(
+          this.props.userGeo.latitude,
+          this.props.userGeo.longitude,
+          item.coords.lat,
+          item.coords.lng
+        );
+
+        // format to 1 decimal place
+        distance = (
+         <DataElement className="distance">
+           {dist}
+         </DataElement>   
+        );
+      }
+    }
 
     return (
       <Link className="item" to="cafe" params={ {id:item.slug} } key={item.slug}>
@@ -44,6 +69,7 @@ module.exports = React.createClass({
         <DataElement className="location">
           <Str value={item.closest_station.station} />
         </DataElement>
+        {distance}
       </Link>
     );    
   },

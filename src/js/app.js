@@ -32,7 +32,7 @@ var App = React.createClass({
   },
 
   componentDidMount: function() {
-    this.state.flux.getActions('app').loadDatabase();
+    this.state.flux.getActions('app').start();
   }
 });
 
