@@ -43,13 +43,13 @@ const DEFAULT_SORT = {
 module.exports = React.createClass({
   propTypes: {
     userGeo: React.PropTypes.object,
-    items : React.PropTypes.array,
+    items : React.PropTypes.object,
   },
 
   getDefaultProps: function() {
     return {
       userGeo: null,
-      items: [],
+      items: {},
     };
   },
 
@@ -78,7 +78,9 @@ module.exports = React.createClass({
 
     var activeSort = this.state.sort || defaultSort;
 
-    var renderedItems = _.map(this.props.items, (item) => {
+    var sortedItems = this._getSortedItems(this.props.items, activeSort);
+
+    var renderedItems = _.map(sortedItems, (item) => {
       return ( <Item item={item} columns={columns} /> );
     });
 
@@ -98,6 +100,41 @@ module.exports = React.createClass({
       sort: newSort
     });
   },
+
+
+  _getSortedItems: function(items, sort) {
+    var ret = _.values(items || {});
+
+    ret.sort((a, b) => {
+      let itemPath = null;
+
+      switch (sort.key) {
+        case 'closest_station':
+          itemPath = 'closest_station.station';
+          break;
+
+        case 'affordability':
+          itemPath = 'affordability.avge';
+          break;      
+
+        default:
+          itemPath = sort.key;
+      };
+
+      let val1 = _.get(a, itemPath),
+        val2 = _.get(b, itemPath);
+
+      if (sort.asc) {
+        return (val1 > val2) ? 1 : -1;
+      } else {
+        return (val1 > val2) ? -1 : 1;
+      }
+    });
+
+    return ret;
+  },
+
+
 
 });
 
