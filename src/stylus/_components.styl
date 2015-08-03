@@ -317,15 +317,18 @@ i {
   
   font-weight normal
   padding 25px
-  line-height 1.4em
-  background black
-  color white
+  
+  background white
+  color black
   position fixed
   z-index: -1;
   opacity: 0;
   transition: 0.3s;
   box-shadow 0px 0px 24px 2px rgba(0,0,0,0.6);
-
+  
+  +below($mobile-max-width) {
+    width: 80%;
+  }
   
   .show > & {
     opacity: 1;
@@ -335,6 +338,11 @@ i {
   > h2 {
     font-size: 2.5rem;
     font-family: Montserrat;
+    font-weight: bold;
     margin-bottom: 1em;
+  }
+  
+  > p {
+    line-height 1.7em
   }
 }

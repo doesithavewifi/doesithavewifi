@@ -11,7 +11,8 @@ module.exports = React.createClass({
     }
   },
 
-  toggleAbout: function(){
+  toggleAbout: function(event){
+    event.preventDefault();
     this.setState({
       showAbout: !this.state.showAbout
     })
