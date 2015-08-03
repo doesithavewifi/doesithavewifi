@@ -1,7 +1,7 @@
 var React = require('react');
 var Router = require('react-router');
 
-var { Route, DefaultRoute, RouteHandler } = Router;
+var { Route, NotFoundRoute, DefaultRoute, RouteHandler } = Router;
 
 var Layout = require('./ui/pages/layout'),
     Home = require('./ui/pages/home'),
@@ -40,6 +40,7 @@ var App = React.createClass({
 
 var routes = (
   <Route handler={App}>
+    <NotFoundRoute name="404" handler={Home} />
     <DefaultRoute name="home" handler={Home} />
     <Route name="cafe" handler={Cafe} path="/taipei/:id" />
     <Route name="about" handler={About} path="/about" />

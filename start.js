@@ -9,6 +9,10 @@ var buildFolder = path.join(__dirname, 'build');
 
 app.use(serveStatic(buildFolder));
 
+// 404 page
+app.use(function(req, res, next) {
+  res.redirect('/');
+});
 
 var port = process.env.PORT || 3000;
 

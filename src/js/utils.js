@@ -169,6 +169,10 @@ exports.parseAffordability = function(str) {
  * Example: `120/?/200`
  */
 exports.getRatingFromPrice = function(num) {
+  if (null === num || undefined === num) {
+    return -1;
+  }
+
   if(num <= 60) {
     return 5;
   } else if(num <= 100) {
@@ -181,6 +185,10 @@ exports.getRatingFromPrice = function(num) {
     return 1;
   }
 }
+
+
+
+
 
 
 

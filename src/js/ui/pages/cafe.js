@@ -1,7 +1,10 @@
+var _ = require('lodash');
+
 var React = require('react');
 
 var Router = require('react-router'),
   State = Router.State,
+  StaticMap = require('../components/staticMap'),
   Hero = require('../components/hero'),
   RatingItem = require('../components/ratingItem'),
   SectionHeader = require('../components/sectionHeader'),
@@ -56,6 +59,15 @@ module.exports = React.createClass({
           link: '#map',
         }
       ];
+
+      let map = (<p>Map currently not available</p>);
+
+      if (_.get(item.latitude, 'length', 0) && _.get(item.longitude, 'length', 0)) {
+        let latitude = parseFloat(item.latitude),
+          longitude = parseFloat(item.longitude);
+
+        map = <StaticMap lat={latitude} lng={longitude} />
+      }
       
       content = 
         <div className="cafe">
@@ -85,7 +97,7 @@ module.exports = React.createClass({
             
             <section id="map">
               <SectionHeader>Map</SectionHeader>
-              Map goes here
+              {map}
             </section>
           </main>
         </div>
