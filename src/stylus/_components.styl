@@ -74,22 +74,30 @@ $heroHeight = 300px;
     z-index: 1;
 
     > .title {
-      color: white;
+      color: $white;
       font-family: Open Sans;
       text-align: center;
       margin-bottom: 10px;
       font-size: 3.2rem;
       font-weight: bold;
     }
+    
     > .address {
-      color: white;
+      color: $white;
       font-size: 1.8rem;
       text-align: center;
     }
     
+    > .distance {
+      color: $grey;
+      font-size: 1.8rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
     > .editor-rating {
       text-align: center;
-      color: white;
+      color: $white;
       font-size: 28px;
       margin-bottom: 15px;
       .icon-full-star {
@@ -131,7 +139,7 @@ i {
   font-family: Montserrat;
   padding: 20px 0;
   font-weight: bold;
-  color: white;
+  color: $white;
   font-size: 2rem;
   text-align: center;
   position: relative;
@@ -179,7 +187,7 @@ i {
       display: block;
       overflow: ellipsis;
       // overflow: hidden; 
-      // white-space: nowrap;
+      // $white-space: nowrap;
     }
   }
 }

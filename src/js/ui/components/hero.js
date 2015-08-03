@@ -4,12 +4,14 @@ var Stars = require('../components/stars');
 
 module.exports = React.createClass({
   render: function() {    
+    var rating;
     if(this.props.rating){
-      var rating = <div className="editor-rating"><Stars rating={this.props.rating} /></div>
+      rating = <Stars rating={this.props.rating} />;
     }
-    if(this.props.address){
-      var address = 
-          <div className="address">{this.props.address}</div>
+
+    var distance = null;
+    if (this.props.distance) {
+      distance = this.props.distance + ' away';
     }
 
     var heroAttrs = {
@@ -28,8 +30,9 @@ module.exports = React.createClass({
       <section className="hero" {...heroAttrs}>
         <div className="content">
           <h2 className="title">{this.props.title}</h2>
-          {rating}
-          {address}
+          <div className="editor-rating">{rating}</div>
+          <div className="address">{this.props.address}</div>
+          <div className="distance">{distance}</div>
         </div>
       </section>
     );    

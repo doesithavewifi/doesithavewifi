@@ -15,7 +15,7 @@ module.exports = React.createClass({
       <div className="home">
         <FluxComponent connectToStores={['app']}>
           <Hero heroUrl={heroUrl} title={title} />
-          <ItemList items={this.props.appDatabase} />
+          <ItemList items={this.props.appDatabase} userGeo={this.props.userGeo} />
         </FluxComponent>
       </div>
     );

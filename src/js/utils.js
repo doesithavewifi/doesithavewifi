@@ -1,4 +1,5 @@
-var _ = require('lodash');
+var _ = require('lodash'),
+  geodist = require('geodist');
 
 
 exports.slugify = function(str) {
@@ -18,8 +19,32 @@ exports.slugify = function(str) {
 
 
 
+exports.calculateGeoDistance = function(lat1, lng1, lat2, lng2) {
+  // calculate distance
+  let dist = geodist({
+    lat: lat1,
+    lng: lng1,
+  }, {
+    lat: lat2,
+    lng: lng2,
+  }, {
+    exact: true,
+    unit: 'km'
+  });
+
+  if (1 > dist) {
+    dist = (parseInt(Math.round(dist * 1000) / 100) * 100) + 'm';
+  } else {
+    dist = dist.toFixed(1) + 'km';
+  }
+
+  return dist;
+};
+
+
+
 exports.generateWifiDescription = function(qualityLevel) {
-  switch (qualityLevel) {
+  switch (parseInt(qualityLevel)) {
     case 0:
       return "WiFi is usually not available in this cafe, unless it's your lucky day. In fact why is this cafe even on here!?";
     case 1:

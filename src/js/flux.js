@@ -16,9 +16,14 @@ const CACHE_ENABLED = false;
 
 
 class AppActions extends Actions {
+  start () {
+    return {};
+  }
+
   loadDatabase() {
     return {};
   }
+
   setView(viewType) {
     return viewType;
   }
@@ -41,6 +46,32 @@ class AppStore extends Store {
       appDatabase: null,
       appViewType: 'listing',
     };
+  }
+
+  start() {
+    this.loadDatabase();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log('Got geo position', position);
+
+          let userGeo = position.coords;
+
+          this._calculateGeoDistances(userGeo, this.state.appDatabase);
+
+          this.setState({
+            userGeo: userGeo
+          });
+
+        }, (err) => {
+          console.error('Error fetching geo location', err);
+        }, {
+          enableHighAccuracy: false,
+          timeout: 5000, /* spend no more than 2 seconds on this */
+          maximumAge: 0, /* don't return cached position info */
+        });
+    }
   }
 
   loadDatabase () {
@@ -84,6 +115,8 @@ class AppStore extends Store {
 
         console.log('Got entries', objData);
 
+        this._calculateGeoDistances(this.state.userGeo, objData);
+
         this.setState({
           appDatabase: objData,
         });
@@ -106,6 +139,38 @@ class AppStore extends Store {
     });
   }
 
+  /**
+   * Calculate distance from user to each item in list
+   *
+   * Each item's `distance_from_user` val will be set upon completion.
+   * 
+   * @param  {[type]} point [description]
+   * @param  {[type]} items [description]
+   * @return {[type]}       [description]
+   */
+  _calculateGeoDistances(userGeo, items) {
+    if (!userGeo) {
+      return;
+    }
+
+    console.debug('Calculate Geo distances');
+
+    _.each(items || {}, (item, key) => {
+      if (item.coords) {
+        item.distance_from_user = utils.calculateGeoDistance(
+          userGeo.latitude,
+          userGeo.longitude,
+          item.coords.latitude,
+          item.coords.longitude
+        );
+      } else {
+        item.distance_from_user = null;
+      }
+    });
+
+    this.forceUpdate();
+  }
+
 
   _parse (item) {
     var ret = {};
@@ -118,6 +183,10 @@ class AppStore extends Store {
       var val = item[key];
 
       switch (slugified) {
+        case 'latitude':
+        case 'longitude':
+          val = (val && val.length) ? parseFloat(val) : null;
+          break;
         case 'opening_times':
           val = utils.parseOpeningTimes(val);
           break;
@@ -150,6 +219,18 @@ class AppStore extends Store {
 
       ret[slugified] = val;
     });
+
+    // lat+lng -> coords
+    if (ret.latitude && ret.longitude) {
+      ret.coords = {
+        latitude: ret.latitude,
+        longitude: ret.longitude,
+      };
+    } else {
+      ret.coords = null;
+    }
+    delete ret.latitude;
+    delete ret.longitude;
 
     return ret;
   }
