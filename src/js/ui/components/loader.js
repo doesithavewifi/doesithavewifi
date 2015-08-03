@@ -1,20 +1,11 @@
 var React = require('react');
 
-var SpinLoader = require('react-loader');
+var SpinLoader = require('react-loader'),
+  OverlayModal = require('./overlayModal');
 
 
 
 module.exports = React.createClass({
-  propTypes: {
-    text : React.PropTypes.string,
-  },
-
-  getDefaultProps: function() {
-    return {
-      text: null,
-    };
-  },
-
   render: function() {  
     var options = {
       lines: 13,
@@ -24,7 +15,7 @@ module.exports = React.createClass({
       corners: 1,
       rotate: 0,
       direction: 1,
-      color: '#000',
+      color: '#fff',
       speed: 1,
       trail: 60,
       shadow: false,
@@ -36,9 +27,9 @@ module.exports = React.createClass({
     };
 
     return (
-      <SpinLoader className="loader" loaded={false} {...options}>
-        {this.props.text}
-      </SpinLoader>
+      <OverlayModal>
+        <SpinLoader className="loader" loaded={false} {...options} />
+      </OverlayModal>
     );
   },
 
