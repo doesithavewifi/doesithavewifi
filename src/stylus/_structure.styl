@@ -141,11 +141,23 @@ $item {
     flex-basis: 0;
     flex-grow: 1;
     color: white;
+    cursor: pointer;
     line-height: 2rem;
     font-weight bold;
     font-size: 1.8rem;
     text-align: center;
     padding: 2rem 0 ;
+    
+    &.sorted {
+      &.asc:after {
+        ion-icon('arrow-up-b');
+        margin-left: 5px;
+      }
+      &.desc:after {
+        ion-icon('arrow-down-b');
+        margin-left: 5px;
+      }
+    }
   }
   
   +below($mobile-max-width) {
