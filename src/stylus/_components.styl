@@ -213,6 +213,9 @@ i {
 .time {
   flex-basis: 0;
   flex-grow: 3;
+  +below($mobile-max-width) {
+    flex-grow: 1;
+  }
 }
 
 
@@ -229,4 +232,7 @@ i {
   z-index: 9999;
 }
 
+/* About Page */
 
+.about-page
+  container()

@@ -71,6 +71,7 @@ module.exports = React.createClass({
               <RatingItem title="Affordability" value={Utils.getRatingFromPrice(item.affordability.avge)} />
               <RatingItem title="Wifi Quality" value={item.wifi_quality} />
               <RatingItem title="Ambience" value={item.ambience} />
+              <RatingItem title="Drink's Quality" value={item.drinks_quality} />
               <RatingItem title="Food/snack selection" value={item.food_snack_selection} />
               <RatingItem title="Power Outlet" value={item.power_outlet} />
               <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene} />

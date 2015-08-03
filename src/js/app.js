@@ -3,9 +3,10 @@ var Router = require('react-router');
 
 var { Route, DefaultRoute, RouteHandler } = Router;
 
-var Layout = require('./ui/pages/layout');
-var Home = require('./ui/pages/home');
-var Cafe = require('./ui/pages/cafe');
+var Layout = require('./ui/pages/layout'),
+    Home = require('./ui/pages/home'),
+    Cafe = require('./ui/pages/cafe'),
+    About = require('./ui/pages/about');
 
 import { FluxManager, FluxComponent } from './flux';
 
@@ -41,6 +42,7 @@ var routes = (
   <Route handler={App}>
     <DefaultRoute name="home" handler={Home} />
     <Route name="cafe" handler={Cafe} path="/taipei/:id" />
+    <Route name="about" handler={About} path="/about" />
   </Route>
 );
 
