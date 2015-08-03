@@ -35,7 +35,7 @@ const DEFAULT_COLUMNS = [
 
 const DEFAULT_SORT = {
   key: 'name',
-  direction: 'asc',
+  asc: true,
 };
 
 
@@ -72,7 +72,7 @@ module.exports = React.createClass({
 
       defaultSort = {
         key: 'distance_from_user',
-        direction: 'asc',
+        asc: true,
       };
     }
 
@@ -84,12 +84,20 @@ module.exports = React.createClass({
 
     return (
       <div className="item-list-wrapper">
-        <ItemHeaders columns={columns} sort={activeSort} />
+        <ItemHeaders columns={columns} sort={activeSort} sortCallback={this._updateSort} />
         <div className="item-list">
           {renderedItems}
         </div>
       </div>
     );    
   },
+
+
+  _updateSort: function(newSort) {
+    this.setState({
+      sort: newSort
+    });
+  },
+
 });
 
