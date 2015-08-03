@@ -5,8 +5,7 @@ var { Route, NotFoundRoute, DefaultRoute, RouteHandler } = Router;
 
 var Layout = require('./ui/pages/layout'),
     Home = require('./ui/pages/home'),
-    Cafe = require('./ui/pages/cafe'),
-    About = require('./ui/pages/about');
+    Cafe = require('./ui/pages/cafe');
 
 import { FluxManager, FluxComponent } from './flux';
 
@@ -43,7 +42,6 @@ var routes = (
     <NotFoundRoute name="404" handler={Home} />
     <DefaultRoute name="home" handler={Home} />
     <Route name="cafe" handler={Cafe} path="/taipei/:id" />
-    <Route name="about" handler={About} path="/about" />
   </Route>
 );
 
