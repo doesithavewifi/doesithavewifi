@@ -70,6 +70,15 @@ module.exports = React.createClass({
 
         break;
 
+      case 'distance_from_user':
+        value = utils.prettyPrintDistance(value);
+
+        dataElementChild = (
+          <Str value={value} />
+        );
+
+        break;
+
       default:
         dataElementChild = (
           <Str value={value} />

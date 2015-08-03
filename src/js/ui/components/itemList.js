@@ -33,6 +33,12 @@ const DEFAULT_COLUMNS = [
 ];
 
 
+const DEFAULT_SORT = {
+  key: 'name',
+  direction: 'asc',
+};
+
+
 
 module.exports = React.createClass({
   propTypes: {
@@ -47,7 +53,15 @@ module.exports = React.createClass({
     };
   },
 
+  getInitialState: function() {
+    return {
+      sort: null,
+    };
+  },
+
   render: function() {    
+    var defaultSort = DEFAULT_SORT;
+
     var columns = [].concat(DEFAULT_COLUMNS);
     if (this.props.userGeo) {
       columns.push({
@@ -55,7 +69,14 @@ module.exports = React.createClass({
         label: 'Distance',
         cssName: 'distance',
       });
+
+      defaultSort = {
+        key: 'distance_from_user',
+        direction: 'asc',
+      };
     }
+
+    var activeSort = this.state.sort || defaultSort;
 
     var renderedItems = _.map(this.props.items, (item) => {
       return ( <Item item={item} columns={columns} /> );
@@ -63,7 +84,7 @@ module.exports = React.createClass({
 
     return (
       <div className="item-list-wrapper">
-        <ItemHeaders columns={columns} />
+        <ItemHeaders columns={columns} sort={activeSort} />
         <div className="item-list">
           {renderedItems}
         </div>

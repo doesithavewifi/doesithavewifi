@@ -1,6 +1,7 @@
 var React = require('react');
 
-var Stars = require('../components/stars');
+var Stars = require('./stars'),
+  Utils = require('../../utils');
 
 module.exports = React.createClass({
   render: function() {    
@@ -10,8 +11,8 @@ module.exports = React.createClass({
     }
 
     var distance = null;
-    if (this.props.distance) {
-      distance = this.props.distance + ' away';
+    if (undefined !== this.props.distance) {
+      distance = Utils.prettyPrintDistance(this.props.distance) + ' away';
     }
 
     var heroAttrs = {

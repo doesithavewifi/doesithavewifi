@@ -21,7 +21,7 @@ exports.slugify = function(str) {
 
 exports.calculateGeoDistance = function(lat1, lng1, lat2, lng2) {
   // calculate distance
-  let dist = geodist({
+  return geodist({
     lat: lat1,
     lng: lng1,
   }, {
@@ -31,14 +31,22 @@ exports.calculateGeoDistance = function(lat1, lng1, lat2, lng2) {
     exact: true,
     unit: 'km'
   });
+};
 
-  if (1 > dist) {
-    dist = (parseInt(Math.round(dist * 1000) / 100) * 100) + 'm';
+
+
+exports.prettyPrintDistance = function(distanceKm) {
+  if (undefined === distanceKm || null === distanceKm) {
+    return null;
+  }
+  
+  if (1 > distanceKm) {
+    distanceKm = (parseInt(Math.round(distanceKm * 1000) / 100) * 100) + 'm';
   } else {
-    dist = dist.toFixed(1) + 'km';
+    distanceKm = distanceKm.toFixed(1) + 'km';
   }
 
-  return dist;
+  return distanceKm;
 };
 
 
