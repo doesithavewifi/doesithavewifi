@@ -237,6 +237,35 @@ i {
   z-index: 9999;
 }
 
+/* Overlay */
+
+.overlay-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $black;
+  opacity: 0.9;
+  z-index: 9990;
+}
+
+/* Error message popup */
+.error-message {
+  text-align: center;
+  color: $red;
+  font-size: 5rem;
+  padding: 1em;
+  z-index: 9998;
+  
+  +below($mobile-max-width) {
+    font-size: 3rem;
+  }
+  
+  p {
+    margin: 1em 0;
+  }
+}
+
+
 /* Static Map */
 
 .static-map {

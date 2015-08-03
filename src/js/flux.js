@@ -62,9 +62,19 @@ class AppStore extends Store {
 
     console.log('Loading spreadsheet data');
 
+    setTimeout(() => {
+      this.setState({
+        timedOut: true
+      });
+    }, 10000);
+
     Tabletop.init({ 
       key: SPREADSHEET_URL,
       callback: _.bind(function(data, tabletop) {
+        if (this.state.timedOut) {
+          return;
+        }
+
         var objData = {};
         data.forEach( (d) => {
           var parsed = this._parse(d);
@@ -87,6 +97,7 @@ class AppStore extends Store {
       callbackContext: this,
       simpleSheet: true
     });
+
   }
 
   setView (viewType) {
