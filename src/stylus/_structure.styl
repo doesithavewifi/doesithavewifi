@@ -18,7 +18,7 @@ main {
   background: #62B2FC;
   display: flex;
   justify-content: space-between;
-  padding: 20px 20px 25px;
+  padding: 5px 5px 5px 20px;
 }
 
 .logo-wrapper {
@@ -68,14 +68,27 @@ main {
   li {
     font-size: 1.8rem;
     font-weight: bold;
-    margin-left: 25px;
+    height: 100%;
+    transition: 0.2s;
+
+    a {
+      color white
+      display: block;
+      text-decoration none
+      padding: 20px 25px;
+      font-family Montserrat
+      transition: 0.2s;
+    }
+    
+    &:hover {
+      background: white;
+      a {
+        color: $blue;
+      }
+    }
   }
   
-  a {
-    color white
-    text-decoration none
-    font-family Montserrat
-  }
+  
 }
 
 /* Home listings */
