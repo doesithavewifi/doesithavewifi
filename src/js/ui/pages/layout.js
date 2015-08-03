@@ -29,7 +29,7 @@ module.exports = React.createClass({
     return (
       <FluxComponent connectToStores={['app']}>
         <TopHeader/>
-        {loader}
+        <div>{loader}</div>
         {this.props.children}
       </FluxComponent>
     );    
