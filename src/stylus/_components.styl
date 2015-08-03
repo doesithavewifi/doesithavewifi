@@ -133,6 +133,10 @@ i {
   position: relative;
   text-transform: uppercase;
   margin-bottom: 20px;
+  
+  &.no-marg {
+    margin-bottom: 0;
+  }
 }
 
 /* Cafe Description */
@@ -213,6 +217,9 @@ i {
 .time {
   flex-basis: 0;
   flex-grow: 3;
+  +below($mobile-max-width) {
+    flex-grow: 1;
+  }
 }
 
 
@@ -258,5 +265,25 @@ i {
 }
 
 
+/* Static Map */
 
+.static-map {
+  
+  +below($mobile-max-width) {
+    position relative
+    display block
+    height 300px
+    overflow hidden
+    
+    > img {
+      absoluteCenterer()
+      width 600px
+      max-width 9999px
+    }
+  }
+}
 
+/* About Page */
+
+.about-page
+  container()

@@ -11,6 +11,11 @@ module.exports = React.createClass({
           <Logo />
           <span className="dropdown">Taipei</span>
         </div>
+        <nav className="main-nav">
+          <ul>
+            <li><Link to="about">About</Link></li>
+          </ul>
+        </nav>
       </header>
     );    
   },

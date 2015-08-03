@@ -66,7 +66,7 @@ module.exports = React.createClass({
         let latitude = parseFloat(item.latitude),
           longitude = parseFloat(item.longitude);
 
-        map = <StaticMap lat={latitude} lng={longitude} />
+        map = <StaticMap lat={latitude} lng={longitude} link={item.google_maps_link}/>
       }
       
       content = 
@@ -83,6 +83,7 @@ module.exports = React.createClass({
               <RatingItem title="Affordability" value={Utils.getRatingFromPrice(item.affordability.avge)} />
               <RatingItem title="Wifi Quality" value={item.wifi_quality} />
               <RatingItem title="Ambience" value={item.ambience} />
+              <RatingItem title="Drink's Quality" value={item.drinks_quality} />
               <RatingItem title="Food/snack selection" value={item.food_snack_selection} />
               <RatingItem title="Power Outlet" value={item.power_outlet} />
               <RatingItem title="Toilet Hygiene" value={item.toilet_hygiene} />
@@ -95,7 +96,7 @@ module.exports = React.createClass({
             </section>
             
             <section id="map">
-              <SectionHeader>Map</SectionHeader>
+              <SectionHeader className="no-marg">Map</SectionHeader>
               {map}
             </section>
           </main>
