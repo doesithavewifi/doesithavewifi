@@ -3,7 +3,7 @@ var _ = require('lodash'),
 
 module.exports = React.createClass({
   propTypes: {
-    columns: React.PropTypes.object.isRequired,
+    columns: React.PropTypes.array.isRequired,
   },
 
   render: function() {    

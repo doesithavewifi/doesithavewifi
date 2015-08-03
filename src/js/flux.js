@@ -156,6 +156,11 @@ class AppStore extends Store {
     console.debug('Calculate Geo distances');
 
     _.each(items || {}, (item, key) => {
+      // if already calculated then nothing to do!
+      if (undefined !== item.distance_from_user) {
+        return;
+      }
+
       if (item.coords) {
         item.distance_from_user = utils.calculateGeoDistance(
           userGeo.latitude,

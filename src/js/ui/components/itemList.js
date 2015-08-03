@@ -48,18 +48,18 @@ module.exports = React.createClass({
   },
 
   render: function() {    
-    var renderedItems = _.map(this.props.items, (item) => {
-      return ( <Item item={item} userGeo={this.props.userGeo} /> );
-    });
-
     var columns = [].concat(DEFAULT_COLUMNS);
     if (this.props.userGeo) {
       columns.push({
-        key: 'geo_distance',
+        key: 'distance_from_user',
         label: 'Distance',
         cssName: 'distance',
       });
     }
+
+    var renderedItems = _.map(this.props.items, (item) => {
+      return ( <Item item={item} columns={columns} /> );
+    });
 
     return (
       <div className="item-list-wrapper">

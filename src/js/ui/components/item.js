@@ -1,4 +1,5 @@
-var React = require('react');
+var _ = require('lodash'),
+  React = require('react');
 
 var Router = require('react-router'),
     Link = Router.Link;
@@ -11,52 +12,75 @@ var DataElement = require('./dataElement'),
 
 module.exports = React.createClass({
   propTypes: {
-    userGeo: React.PropTypes.object,
-    item : React.PropTypes.object,
-  },
-
-  getDefaultProps: function() {
-    return {
-      item: {},
-    };
+    item : React.PropTypes.object.isRequired,
+    columns: React.PropTypes.array.isRequired,
   },
 
   render: function() {    
-    var item = this.props.item;
+    let item = this.props.item;
 
-    var wifiDescription = utils.generateWifiDescription(item.wifi_quality);
-
-    var affordability = utils.getRatingFromPrice(item.affordability.avge);
-
-    var distance = null;
-    if (!item.distance_from_user) {
-      distance = <UnknownValue />
-    } else {
-      distance = (
-       <DataElement className="distance">{item.distance_from_user}</DataElement>   
-      );
-    }
+    var dataElements = _.map(this.props.columns, (col) => {
+      return this._formatColumnValue(col, item[col.key]);
+    });
 
     return (
       <Link className="item" to="cafe" params={ {id:item.slug} } key={item.slug}>
-        <DataElement className="name">
-          {item.name}
-        </DataElement>
-        <DataElement className="rating">
-          <Stars rating={item.editor_rating}  />
-        </DataElement>
-        <DataElement className="wifi" popup={wifiDescription}>
-          <Stars rating={item.wifi_quality} fullIcon="wifi" halfIcon="shit-wifi" />
-        </DataElement>
-        <DataElement className="cost">
-          <Stars rating={affordability} />
-        </DataElement>
-        <DataElement className="location">
-          <Str value={item.closest_station.station} />
-        </DataElement>
-        {distance}
+        {dataElements}
       </Link>
     );    
+  },
+
+
+  _formatColumnValue: function(column, value) {
+    var dataElementAttrs = {},
+      dataElementChild = null;
+
+    switch (column.key) {
+      case 'editor_rating':
+        dataElementChild = (
+          <Stars rating={value}  />
+        );
+
+        break;
+
+      case 'affordability':
+        value = utils.getRatingFromPrice(value.avge);
+
+        dataElementChild = (
+          <Stars rating={value}  />
+        );
+
+        break;
+
+      case 'wifi_quality':
+        dataElementChild = (
+          <Stars rating={value} fullIcon="wifi" halfIcon="shit-wifi" />
+        );
+
+        dataElementAttrs = {
+          popup: utils.generateWifiDescription(value)
+        };
+
+        break;
+
+      case 'closest_station':
+        dataElementChild = (
+          <Str value={value.station} />
+        );
+
+        break;
+
+      default:
+        dataElementChild = (
+          <Str value={value} />
+        );
+    }
+
+    return (
+      <DataElement ref={column.key} className={column.cssName} {...dataElementAttrs}>
+        {dataElementChild}
+      </DataElement>
+    );
   },
 });
 
