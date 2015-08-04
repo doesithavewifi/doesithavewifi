@@ -64,7 +64,7 @@ module.exports = React.createClass({
         distance = null;
 
       if (item.coords) {
-        map = <StaticMap lat={item.coords.lat} lng={item.coords.lng} link={item.google_maps_link}/>
+        map = <StaticMap lat={item.coords.latitude} lng={item.coords.longitude} link={item.google_maps_link}/>
       }
       
       content = 

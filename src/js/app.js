@@ -1,6 +1,9 @@
 var React = require('react');
 var Router = require('react-router');
 
+// fastclick for mobile
+require("react-tap-event-plugin")();    
+
 var { Route, NotFoundRoute, DefaultRoute, RouteHandler } = Router;
 
 var Layout = require('./ui/pages/layout'),
