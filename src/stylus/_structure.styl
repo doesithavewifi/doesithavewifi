@@ -121,11 +121,17 @@ $item {
   flex-grow: 1;
   height: 100%;
   text-align: center;
+  width: auto;
+  transition: 0.5s;
   
   +below($mobile-max-width) {
     font-size: 1.4rem;
   }
   
+  &.hidden {
+    width: 0;
+  }
+
   &.cost {
     +below($tablet-max-width) {
       display none
@@ -149,6 +155,7 @@ $item {
   padding: 0 20px;
   margin: 0 auto 0;
   line-height: 2rem;
+  
   > div {
     font-family: Open Sans;
     flex-basis: 0;
@@ -160,7 +167,13 @@ $item {
     font-size: 1.8rem;
     text-align: center;
     padding: 2rem 0 ;
+    transition: 0.5s;
+    width: auto;
     
+    &.hidden {
+      width: 0;
+    }
+
     &.sorted {
       &.asc:after {
         ion-icon('arrow-up-b');

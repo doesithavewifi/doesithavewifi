@@ -51,6 +51,13 @@ class AppStore extends Store {
   start() {
     this.loadDatabase();
 
+    setTimeout(() => {
+      this.getUserGeoCoords();
+    }, 5000);
+  }
+
+
+  getUserGeoCoords () {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -73,6 +80,8 @@ class AppStore extends Store {
         });
     }
   }
+
+
 
   loadDatabase () {
     // check cache?

@@ -30,6 +30,12 @@ const DEFAULT_COLUMNS = [
     label: 'Nearest MRT',
     cssName: 'location',
   },
+  {
+    key: 'distance_from_user',
+    label: 'Distance',
+    cssName: 'distance',
+    hidden: true,
+  },
 ];
 
 
@@ -64,11 +70,11 @@ module.exports = React.createClass({
 
     var columns = [].concat(DEFAULT_COLUMNS);
     if (this.props.userGeo) {
-      columns.push({
-        key: 'distance_from_user',
-        label: 'Distance',
-        cssName: 'distance',
+      let distanceCol = _.filter(columns, (c) => {
+        return 'distance_from_user' === c.name;
       });
+
+      distanceCol.hidden = false;
 
       defaultSort = {
         key: 'distance_from_user',

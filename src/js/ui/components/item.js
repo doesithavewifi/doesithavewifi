@@ -1,4 +1,5 @@
 var _ = require('lodash'),
+  Classnames = require('classnames'),
   React = require('react');
 
 var Router = require('react-router'),
@@ -85,8 +86,15 @@ module.exports = React.createClass({
         );
     }
 
+    var classes = {};
+    classes[column.cssName] = true;
+    classes.hidden = !!column.hidden;
+
     return (
-      <DataElement ref={column.key} className={column.cssName} {...dataElementAttrs}>
+      <DataElement 
+          ref={column.key} 
+          className={Classnames(classes)} 
+          {...dataElementAttrs}>
         {dataElementChild}
       </DataElement>
     );

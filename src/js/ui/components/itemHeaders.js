@@ -15,6 +15,7 @@ module.exports = React.createClass({
 
       classes[[`${col.cssName}-header`]] = true;
       classes[this.props.sort.asc ? 'asc' : 'desc'] = true;
+      classes.hidden = !!col.hidden;
       classes.sorted = (this.props.sort.key === col.key);
 
       let classNames = Classnames(classes);
