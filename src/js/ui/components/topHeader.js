@@ -38,18 +38,19 @@ module.exports = React.createClass({
             <li className="mobile-button">
               <a href="#" onClick={this.toggleMobileMenu}>
               <i></i>
-              <MobileMenu 
-                show={this.state.showMobileMenu} 
-                toggleMobileMenu={this.toggleMobileMenu}
-                toggleAbout={this.toggleAbout} />
               </a>
             </li>
             <li>
               <a href="#" onClick={this.toggleAbout}>About</a>
-              <About show={this.state.showAbout} toggleAbout={this.toggleAbout} />
             </li>
           </ul>
         </nav>
+
+        <MobileMenu 
+          show={this.state.showMobileMenu} 
+          toggleMobileMenu={this.toggleMobileMenu}
+          toggleAbout={this.toggleAbout} />
+        <About show={this.state.showAbout} toggleAbout={this.toggleAbout} />
         
       </header>
     );    
