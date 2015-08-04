@@ -70,8 +70,8 @@ module.exports = React.createClass({
 
     var columns = [].concat(DEFAULT_COLUMNS);
     if (this.props.userGeo) {
-      let distanceCol = _.filter(columns, (c) => {
-        return 'distance_from_user' === c.name;
+      let distanceCol = _.find(columns, (c) => {
+        return 'distance_from_user' === c.key;
       });
 
       distanceCol.hidden = false;

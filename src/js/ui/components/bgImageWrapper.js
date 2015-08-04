@@ -39,8 +39,6 @@ module.exports = React.createClass({
 
     var credit = null;
     if (this.props.imgCredit) {
-      console.log(this.state.showCreditText);
-
       if (this.state.showCreditText) {
         if (Utils.isUrl(this.props.imgCredit)) {
           credit = (

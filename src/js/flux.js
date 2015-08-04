@@ -50,10 +50,7 @@ class AppStore extends Store {
 
   start() {
     this.loadDatabase();
-
-    setTimeout(() => {
-      this.getUserGeoCoords();
-    }, 5000);
+    this.getUserGeoCoords();
   }
 
 
