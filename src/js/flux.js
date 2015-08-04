@@ -188,6 +188,10 @@ class AppStore extends Store {
       var val = item[key];
 
       switch (slugified) {
+        case 'header_image':
+        case 'header_image_credit':
+          val = (val && val.length) ? val : null;
+          break;
         case 'latitude':
         case 'longitude':
           val = (val && val.length) ? parseFloat(val) : null;

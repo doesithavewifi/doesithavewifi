@@ -5,6 +5,11 @@ var Stars = require('./stars'),
   Utils = require('../../utils');
 
 module.exports = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string.isRequired,
+  },
+
+
   render: function() {    
     var rating;
     if(this.props.rating){
@@ -16,10 +21,12 @@ module.exports = React.createClass({
       distance = Utils.prettyPrintDistance(this.props.distance) + ' away';
     }
 
-    var bgImageUrl = this.props.heroUrl || '/img/header.jpg';
+    var bgImageUrl = this.props.imgUrl || '/img/header.jpg';
 
     return (
-      <BgImageWrapper className="hero" imgUrl={bgImageUrl}>
+      <BgImageWrapper className="hero" 
+          imgUrl={bgImageUrl} 
+          imgCredit={this.props.imgCredit}>
         <div className="content">
           <h2 className="title">{this.props.title}</h2>
           <div className="editor-rating">{rating}</div>

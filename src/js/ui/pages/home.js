@@ -5,7 +5,8 @@ import { FluxComponent } from '../../flux';
 var ItemList = require('../components/itemList'),
   Hero = require('../components/hero');
 
-var heroUrl = "/img/header.jpg",
+var imgUrl = "/img/header.jpg",
+  imgCredit = "https://www.flickr.com/photos/peronimo/16578087888/",
   title = "Find the best cafes to work in Taipei";
 
 
@@ -14,7 +15,7 @@ module.exports = React.createClass({
     return (
       <div className="home">
         <FluxComponent connectToStores={['app']}>
-          <Hero heroUrl={heroUrl} title={title} />
+          <Hero imgUrl={imgUrl} imgCredit={imgCredit} title={title} />
           <ItemList items={this.props.appDatabase} userGeo={this.props.userGeo} />
         </FluxComponent>
       </div>
