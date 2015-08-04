@@ -2,6 +2,14 @@ var _ = require('lodash'),
   geodist = require('geodist');
 
 
+const REGEX_IS_URL = /https?\:\/\//i; 
+
+exports.isUrl = function(str) {
+  return null !== REGEX_IS_URL.exec(str);
+};
+
+
+
 exports.slugify = function(str) {
   str = (str || '').toLowerCase();
 

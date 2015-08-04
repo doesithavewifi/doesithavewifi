@@ -49,6 +49,32 @@
   }
 }
 
+
+/* Bg image wrapper */
+
+.bg-image-wrapper {
+  position: relative;
+  
+  .bg-image-credit {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: $grey;
+    font-size: 1.5rem;
+    z-index: 900;
+    
+    a {
+      color: $grey
+    }
+    
+    em {
+      font-style: italic;
+    }
+  }
+}
+
+
+
 /* Hero */
 
 $heroHeight = 300px;
@@ -129,6 +155,10 @@ i {
   &.icon-shit-wifi:before {
     ion-icon("wifi");
     color: $grey;
+  }
+
+  &.icon-help:before {
+    ion-icon("help-circled");
   }
 }
 
