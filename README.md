@@ -28,3 +28,7 @@ $ gulp
 * [Ramesh Nair](https://github.com/hiddentao)
 * [Jeff Lau](https://github.com/jefflau)
 * [Leon Talbert](https://github.com/LeonmanRolls)
+
+## License
+
+AGPLv3 - see LICENSE.txt
