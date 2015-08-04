@@ -15,7 +15,7 @@ module.exports = React.createClass({
       corners: 1,
       rotate: 0,
       direction: 1,
-      color: '#fff',
+      color: '#000',
       speed: 1,
       trail: 60,
       shadow: false,
@@ -27,7 +27,7 @@ module.exports = React.createClass({
     };
 
     return (
-      <OverlayModal>
+      <OverlayModal show={true}>
         <SpinLoader className="loader" loaded={false} {...options} />
       </OverlayModal>
     );

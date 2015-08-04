@@ -27,7 +27,10 @@ module.exports = React.createClass({
         </div>
         <nav className="main-nav">
           <ul>
-            <li><a href="#" onClick={this.toggleAbout}>About</a><About show={this.state.showAbout} toggleAbout={this.toggleAbout} /></li>
+            <li>
+              <a href="#" onClick={this.toggleAbout}>About</a>
+              <About show={this.state.showAbout} toggleAbout={this.toggleAbout} />
+            </li>
           </ul>
         </nav>
         

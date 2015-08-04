@@ -251,28 +251,20 @@ i {
 /* Overlay */
 
 .overlay-modal {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: $black;
-  opacity: 0.9;
-  z-index: 9990;
-}
-
-.overlay {
   absoluteCenterer()
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: $black;
+  background-color: $white;
   opacity: 0;
   z-index: -1;
   transition: 0.5s;
   &.show {
-    opacity: 0.6;
-    z-index: 999;
+    opacity: 0.9;
+    z-index: 9990;
   }
 }
+
 
 /* Error message popup */
 .error-message {
