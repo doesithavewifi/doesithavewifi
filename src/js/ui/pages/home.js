@@ -6,7 +6,7 @@ var ItemList = require('../components/itemList'),
   Hero = require('../components/hero');
 
 var heroUrl = "/img/header.jpg",
-  title = "Find the best cafes to work in your city";
+  title = "Find the best cafes to work in Taipei";
 
 
 module.exports = React.createClass({
