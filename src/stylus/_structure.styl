@@ -61,34 +61,57 @@ main {
   display: flex;
   align-items: center;
   
-  ul {
+  > ul {
     display: flex;
-  }
   
-  li {
-    font-size: 1.8rem;
-    font-weight: bold;
-    height: 100%;
-    transition: 0.2s;
-
-    & > a {
-      color white
-      display: block;
-      text-decoration none
-      padding: 20px 25px;
-      font-family Montserrat
-      transition: 0.2s;
+    .mobile-button {
+      i:before {
+        color white
+        font-size: 3rem;
+        ion-icon("navicon-round"); 
+      }
+      
+      &:hover {
+        i:before {
+          color $blue
+        }
+      }
     }
     
-    &:hover {
-      background: white;
+    > li {
+      font-size: 1.8rem;
+      font-weight: bold;
+      height: 100%;
+      transition: 0.2s;
+      
+      &:first-child {
+        display: none;
+      }
+      
+      +below($mobile-max-width){
+        display: none;
+        &:nth-child(1) {
+          display: block
+        }
+      }
+
       & > a {
-        color: $blue;
+        color white
+        display: block;
+        text-decoration none
+        padding: 20px 25px;
+        font-family Montserrat
+        transition: 0.2s;
+      }
+      
+      &:hover {
+        background: white;
+        & > a {
+          color: $blue;
+        }
       }
     }
   }
-  
-  
 }
 
 /* Home listings */

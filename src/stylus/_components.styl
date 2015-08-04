@@ -285,12 +285,12 @@ i {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: $white;
+  background-color: rgba(255, 255, 255, 0.7);
   opacity: 0;
   z-index: -1;
   transition: 0.5s;
   &.show {
-    opacity: 0.9;
+    opacity: 1;
     z-index: 9990;
   }
 }
@@ -354,6 +354,7 @@ i {
   }
   
   .show > & {
+    display: block !important;
     top: 50%;
     opacity: 1;
     z-index: 9992;
@@ -369,5 +370,56 @@ i {
   > p {
     line-height 1.7em
     margin-bottom 1em
+  }
+}
+
+/* Mobile menu popup */
+
+.mobile-menu {
+  opacity: 0;
+  background: rgba(255,255,255,0.9);
+  height: 0;
+  width: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: scale(0);
+  z-index: -1;
+  padding-top: 10px;
+  transition: 0.3s;
+  
+  li {
+    a {
+      display: block;
+      padding: 20px;
+      font-size: 2rem;
+      color: $blue;
+      text-align: center;
+      text-decoration: none;
+      transition: 0.3s;
+      &:hover, &:active {
+        background: $blue;
+        color: white;
+      }
+    }
+  }
+  
+  &.show {
+    height: 100%;
+    width: 100%;
+    transform: scale(1);
+    opacity: 1;
+    z-index: 9000;
+  }
+  
+  .close {
+    color red;
+    position: absolute;
+    top 20px;
+    right 20px;
+    &:before {
+      font-size: 3rem;
+      ion-icon('close');
+    }
   }
 }

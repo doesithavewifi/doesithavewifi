@@ -9,7 +9,7 @@ module.exports = React.createClass({
       <OverlayModal 
           show={this.props.show} 
           onClick={this.props.toggleAbout}
-          bgColor="transparent">
+          bgColor="rgba(255, 255, 255, 0.8)">
         <div className="about-popup" onClick={this.props.toggleAbout}>
           <h2>About this project</h2>
           <p>

@@ -2,7 +2,8 @@ var React = require('react');
 var Link = require('react-router').Link;
 
 var Logo = require('./logo'),
-    About = require('./about');
+    About = require('./about'),
+    MobileMenu = require('./mobileMenu');
 
 module.exports = React.createClass({
   getInitialState: function(){
@@ -18,6 +19,13 @@ module.exports = React.createClass({
     })
   },
 
+  toggleMobileMenu: function(event){
+    event.preventDefault();
+    this.setState({
+      showMobileMenu: !this.state.showMobileMenu
+    })
+  },
+
   render: function() {    
     return (
       <header className="header">
@@ -27,12 +35,22 @@ module.exports = React.createClass({
         </div>
         <nav className="main-nav">
           <ul>
+            <li className="mobile-button">
+              <a href="#" onClick={this.toggleMobileMenu}>
+              <i></i>
+              </a>
+            </li>
             <li>
               <a href="#" onClick={this.toggleAbout}>About</a>
-              <About show={this.state.showAbout} toggleAbout={this.toggleAbout} />
             </li>
           </ul>
         </nav>
+
+        <MobileMenu 
+          show={this.state.showMobileMenu} 
+          toggleMobileMenu={this.toggleMobileMenu}
+          toggleAbout={this.toggleAbout} />
+        <About show={this.state.showAbout} toggleAbout={this.toggleAbout} />
         
       </header>
     );    
