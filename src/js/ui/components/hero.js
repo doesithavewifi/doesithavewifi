@@ -1,9 +1,15 @@
 var React = require('react');
 
 var Stars = require('./stars'),
+  BgImageWrapper = require('./bgImageWrapper'),
   Utils = require('../../utils');
 
 module.exports = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string.isRequired,
+  },
+
+
   render: function() {    
     var rating;
     if(this.props.rating){
@@ -15,27 +21,19 @@ module.exports = React.createClass({
       distance = Utils.prettyPrintDistance(this.props.distance) + ' away';
     }
 
-    var heroAttrs = {
-      style: {
-        backgroundImage: `url(/img/header.jpg)`,
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }
-    };
-    if (this.props.heroUrl) {
-      heroAttrs.style.backgroundImage = `url(${this.props.heroUrl})`
-    };
+    var bgImageUrl = this.props.imgUrl || '/img/header.jpg';
 
     return (
-      <section className="hero" {...heroAttrs}>
+      <BgImageWrapper className="hero" 
+          imgUrl={bgImageUrl} 
+          imgCredit={this.props.imgCredit}>
         <div className="content">
           <h2 className="title">{this.props.title}</h2>
           <div className="editor-rating">{rating}</div>
           <div className="address">{this.props.address}</div>
           <div className="distance">{distance}</div>
         </div>
-      </section>
+      </BgImageWrapper>
     );    
   },
 });

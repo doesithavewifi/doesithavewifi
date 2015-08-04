@@ -25,14 +25,14 @@ module.exports = React.createClass({
 
       var id = this.getParams().id,
           item = this.props.appDatabase[id],
-          heroUrl = "/img/cafes/default-header.jpg",
+          heroImgUrl = "/img/cafes/default-header.jpg",
           description,
           openingTimes;
 
 
-      var heroUrl = "/img/cafes/default-header.jpg";
+      var heroImgUrl = "/img/cafes/default-header.jpg";
       if (item.header_image) {
-        heroUrl = item.header_image;
+        heroImgUrl = item.header_image;
       }
 
       if(item.description) {
@@ -70,7 +70,8 @@ module.exports = React.createClass({
       content = 
         <div className="cafe">
           <Hero 
-            heroUrl={heroUrl} 
+            imgUrl={heroImgUrl} 
+            imgCredit={item.header_image_credit} 
             title={item.name} 
             rating={item.editor_rating} 
             address={item.address} 
