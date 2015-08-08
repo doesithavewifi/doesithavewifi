@@ -12,7 +12,9 @@ var utils = require('./utils');
 
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17EzWbGUykvBOcy6KZsjJy15jnvfuprmrk5OmBe3oOws/pubhtml?gid=0&single=true";
 
-const CACHE_ENABLED = false;
+const CACHE_ENABLED = true;
+const LOAD_DATA_TIMEOUT = 10000;
+const GET_USER_GEO_TIMEOUT = 5000;
 
 
 class AppActions extends Actions {
@@ -72,7 +74,7 @@ class AppStore extends Store {
           console.error('Error fetching geo location', err);
         }, {
           enableHighAccuracy: false,
-          timeout: 5000, /* spend no more than 2 seconds on this */
+          timeout: GET_USER_GEO_TIMEOUT, 
           maximumAge: 0, /* don't return cached position info */
         });
     }
@@ -103,7 +105,7 @@ class AppStore extends Store {
       this.setState({
         timedOut: true
       });
-    }, 10000);
+    }, LOAD_DATA_TIMEOUT);
 
     Tabletop.init({ 
       key: SPREADSHEET_URL,

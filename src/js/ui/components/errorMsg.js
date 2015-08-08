@@ -12,7 +12,9 @@ module.exports = React.createClass({
   render: function() {  
     return (
       <OverlayModal show={true}>
-        <div className="error-message">{this.props.text}</div>
+        <div className="error-message">
+          {this.props.text}
+        </div>
       </OverlayModal>
     );
   },

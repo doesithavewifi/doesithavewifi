@@ -299,15 +299,21 @@ i {
 /* Error message popup */
 .error-message {
   text-align: center;
+  z-index: 9998;
+  width: 80%;
+  margin: 30px auto;
+
+  background-color: $white;
+  border-radius: 10px;
   color: $red;
   font-size: 5rem;
-  padding: 1em;
-  z-index: 9998;
-  
+  padding: 0.5em;
+    
   +below($mobile-max-width) {
+    width: 95%;
     font-size: 3rem;
   }
-  
+    
   p {
     margin: 1em 0;
   }
