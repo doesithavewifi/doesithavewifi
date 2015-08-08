@@ -25,7 +25,7 @@ module.exports = React.createClass({
             className={classNames} 
             onClick={this._columnClicked}
             data-key={col.key}>
-          {col.label}
+          <span>{col.label}</span>
         </div>
       );
     });

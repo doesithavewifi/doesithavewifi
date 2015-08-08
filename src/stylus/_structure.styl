@@ -181,7 +181,6 @@ $item {
 .item-header {
   @extend $item;
   max-width: 1200px;
-  padding: 0 20px;
   margin: 0 auto 0;
   line-height: 2rem;
   
@@ -195,17 +194,46 @@ $item {
     font-weight bold;
     font-size: 1.8rem;
     text-align: center;
-    padding: 2rem 0 ;
+    padding: 20px 10px;
+    
+    +below($mobile-max-width) {
+      font-size 1.4rem;
+    }
     
     &.sorted {
-      &.asc:after {
-        ion-icon('arrow-up-b');
-        margin-left: 5px;
+      > span:after {
+        transition 0.2s
+        position absolute
+        top 3px
+        left 100%
+        margin-left 10px
+        visibility hidden
+        ion-icon('arrow-up-b')
+        
+        +below($mobile-max-width) {
+          margin-left 5px
+        }
       }
-      &.desc:after {
-        ion-icon('arrow-down-b');
-        margin-left: 5px;
+      
+      &.asc, &.desc {
+        > span {
+          display inline-block
+          position relative
+          &:after {
+            visibility visible
+            transform rotate(0deg)
+          }
+        }
       }
+      
+      &.desc {
+        > span {
+          &:after {
+            transform rotate(180deg)
+          }
+        }
+      }
+      
     }
   }
   
