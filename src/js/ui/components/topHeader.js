@@ -40,6 +40,9 @@ module.exports = React.createClass({
               </a>
             </li>
             <li>
+              <Link to="add">Add Cafe</Link>
+            </li>
+            <li>
               <a href="#" onClick={this.toggleAbout}>About</a>
             </li>
           </ul>
