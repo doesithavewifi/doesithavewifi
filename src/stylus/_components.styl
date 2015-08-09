@@ -60,11 +60,10 @@
     right: 5px;
     bottom: 5px;
     color: $grey;
-    font-size: 1.5rem;
     z-index: 900;
     
     a {
-      color: $grey
+      color: $grey;
     }
     
     em {
@@ -157,8 +156,8 @@ i {
     color: $grey;
   }
 
-  &.icon-help:before {
-    ion-icon("help-circled");
+  &.icon-close:before {
+    ion-icon("close-circled");
   }
 }
 
@@ -377,6 +376,13 @@ i {
     line-height 1.7em
     margin-bottom 1em
   }
+  
+  .close-button {
+    color: $grey-dark;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 }
 
 /* Mobile menu popup */
@@ -429,3 +435,16 @@ i {
     }
   }
 }
+
+
+/* icon button */
+
+.icon-button {
+  cursor: pointer;
+  background-color: transparent;
+  color: $grey;
+  font-size: 1.5rem;
+  border: none;
+  padding: 0;
+}
+

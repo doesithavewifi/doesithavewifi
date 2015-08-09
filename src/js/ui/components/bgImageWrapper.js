@@ -1,7 +1,7 @@
 var React = require('react'),
   Classnames = require('classnames');
 
-var Icon = require('./icon'),
+var IconButton = require('./iconButton'),
   Utils = require('../../utils');
 
 
@@ -53,7 +53,7 @@ module.exports = React.createClass({
         );
       } else {
         credit = (
-          <Icon name="help" onClick={this._showCredits} />
+          <IconButton icon="help" onClick={this._showCredits} />
         );
       }
     }
