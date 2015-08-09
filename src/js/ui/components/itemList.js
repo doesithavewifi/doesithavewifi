@@ -112,7 +112,8 @@ module.exports = React.createClass({
     var ret = _.values(items || {});
 
     ret.sort((a, b) => {
-      let itemPath = null;
+      let itemPath = null,
+        defaultValue = undefined;
 
       switch (sort.key) {
         case 'closest_station':
@@ -121,14 +122,15 @@ module.exports = React.createClass({
 
         case 'affordability':
           itemPath = 'affordability.avge';
+          defaultValue = 1000000;
           break;      
 
         default:
           itemPath = sort.key;
       };
 
-      let val1 = _.get(a, itemPath),
-        val2 = _.get(b, itemPath);
+      let val1 = _.get(a, itemPath, defaultValue),
+        val2 = _.get(b, itemPath, defaultValue);
 
       if (sort.asc) {
         return (val1 > val2) ? 1 : -1;

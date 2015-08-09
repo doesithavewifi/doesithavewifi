@@ -45,7 +45,7 @@ module.exports = React.createClass({
         break;
 
       case 'affordability':
-        value = utils.getRatingFromPrice(value.avge);
+        value = utils.getRatingFromPrice(_.get(value, 'avge'));
 
         dataElementChild = (
           <Stars rating={value}  />

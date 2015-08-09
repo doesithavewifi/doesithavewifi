@@ -205,7 +205,7 @@ exports.parseAffordability = function(str) {
 };
 
 /**
- * Parse affordability string into object.
+ * Get star-rating from price.
  *
  * Example: `120/?/200`
  */
