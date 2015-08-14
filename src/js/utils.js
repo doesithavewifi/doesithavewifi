@@ -4,6 +4,7 @@ var _ = require('lodash'),
 
 const REGEX_IS_URL = /https?\:\/\//i; 
 
+
 exports.isUrl = function(str) {
   return null !== REGEX_IS_URL.exec(str);
 };

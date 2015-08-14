@@ -1,6 +1,7 @@
 var React = require('react');
 
 var OverlayModal = require('./overlayModal'),
+  Constants = require('../../constants'),
   ButtonIcon = require('./iconButton');
 
 
@@ -15,7 +16,14 @@ module.exports = React.createClass({
           <ButtonIcon className="close-button" icon="close" onClick={this.props.toggleAbout} />
           <h2>About this project</h2>
           <p>
-            Does it have Wifi is a project to document all the working cafes in a city. The team behind Does it have wifi are all based in Taiwan and predominantly work from home or cafes, but finding cafes with the right environment for working is difficult. Does it have wifi makes it easy for you to find those cafes.
+            <em>Does it have Wifi</em> is a project to document all the working cafes in 
+            a city. The team behind Does it have wifi work predominantly from 
+            home or cafes, but finding cafes with the right environment for 
+            working is difficult. <em>Does it have Wifi</em> makes it easy for you to find such places.
+          </p>
+          <p>
+            Know of a great cafe that you want to add to the list? let us know by 
+            filling in our <a href={Constants.ADD_FORM_URL} target="_blank">Add Cafe</a> form.
           </p>
           <p>
             By <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a>, <a href="https://twitter.com/hiddentao">@hiddentao</a> and <a href="https://twitter.com/leemanrolls">@leemanrolls</a>.
