@@ -90,7 +90,7 @@ class AppStore extends Store {
       // if cache set
       if (data && data.updated && data.entries) {
         if (1 > moment().diff(data.updated, 'hours')) {
-          console.log('Cached data available');
+          console.log('Cached data available', data);
 
           return this.setState({
             appDatabase: data.entries

@@ -87,7 +87,7 @@ module.exports = React.createClass({
     var sortedItems = this._getSortedItems(this.props.items, activeSort);
 
     var renderedItems = _.map(sortedItems, (item) => {
-      return ( <Item item={item} columns={columns} /> );
+      return ( <Item item={item} columns={columns} key={item.slug} /> );
     });
 
     return (
