@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "node start.js",
-    "postinstall": "node_modules/.bin/gulp assets"
+    "postinstall": "npm run build",
+    "build": "node_modules/.bin/gulp assets"
   },
   "dependencies": {
     "babelify": "~6.1.2",
