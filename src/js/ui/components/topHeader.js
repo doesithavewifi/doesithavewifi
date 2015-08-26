@@ -1,5 +1,7 @@
 var React = require('react');
 
+var { Link } = require('react-router');
+
 var Logo = require('./logo'),
     Constants = require('../../constants'),
     About = require('./about'),
@@ -38,6 +40,9 @@ module.exports = React.createClass({
               <a href="#" onClick={this.toggleMobileMenu}>
               <i></i>
               </a>
+            </li>
+            <li>
+              <Link to="home" target="_blank">Cafes</Link>
             </li>
             <li>
               <a href={Constants.ADD_FORM_URL} target="_blank">Add Cafe</a>
