@@ -103,7 +103,9 @@ module.exports = React.createClass({
               <SectionHeader className="no-marg">Map</SectionHeader>
               {map}
             </section>
+
           </main>
+
         </div>
       ;
     }
