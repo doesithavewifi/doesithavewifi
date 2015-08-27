@@ -110,9 +110,9 @@ class AppStore extends Store {
     Tabletop.init({ 
       key: SPREADSHEET_URL,
       callback: _.bind(function(data, tabletop) {
-        if (this.state.timedOut) {
-          return;
-        }
+        this.setState({
+          timedOut: false
+        });
 
         var objData = {};
         data.forEach( (d) => {
