@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node start.js",
     "postinstall": "npm run build",
-    "build": "node_modules/.bin/gulp assets"
+    "build": "node_modules/.bin/gulp assets --minified"
   },
   "dependencies": {
     "babelify": "~6.1.2",

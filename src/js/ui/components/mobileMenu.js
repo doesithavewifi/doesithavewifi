@@ -6,6 +6,9 @@ var OverlayModal = require('./overlayModal'),
     Link = Router.Link,
     Navigation = Router.Navigation;
 
+var Constants = require('../../constants');
+
+
 
 module.exports = React.createClass({
   mixins: [Navigation],
@@ -33,6 +36,9 @@ module.exports = React.createClass({
         <ul>
           <li>
             <a href="#" onClick={this._openHome}>Cafes</a>
+          </li>
+          <li>
+            <a href={Constants.ADD_FORM_URL} target="_blank">Add Cafe</a>
           </li>
           <li>
             <a href="#" onClick={this._openAbout}>About</a>

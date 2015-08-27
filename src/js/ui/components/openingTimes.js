@@ -41,7 +41,7 @@ module.exports = React.createClass({
       }
 
       return (
-        <div className="day">
+        <div className="day" key={key}>
           <div className="day-name">{day}</div>
           {time}
         </div>

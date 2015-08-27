@@ -14,13 +14,13 @@ $ npm install
 Run server with auto-reload (without minification):
 
 ```bash
-$ gulp --debug
+$ gulp
 ```
 
-To force minification of assets (build takes a bit longer) don't include the `--debug` flag:
+To force minification of assets (build takes a bit longer) include the `--minified` flag:
 
 ```bash
-$ gulp
+$ gulp --minified
 ```
 
 ## Credits

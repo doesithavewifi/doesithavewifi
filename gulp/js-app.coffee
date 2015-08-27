@@ -17,13 +17,13 @@ module.exports = (paths, options = {}) ->
       .on 'error', (err) ->
         gutil.log(err.stack)
       .pipe source('app.js')
-      .pipe gulpIf(!options.debugBuild, uglify())
+      .pipe gulpIf(options.minifiedBuild, uglify())
       .pipe gulp.dest(paths.build.js)
 
   return -> 
     b = browserify(
       entries: paths.files.js
-      debug: !!options.debugBuild
+      debug: !options.minifiedBuild
       cache: {}
       packageCache: {}
     )

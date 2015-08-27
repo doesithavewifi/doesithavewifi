@@ -240,28 +240,30 @@ i {
 
 .opening-times {
   padding-left: 20px;
-}
+  
+  .day {
+    display: flex;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: space-between;
+  }
 
-.day {
-  display: flex;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.day-name {
-  flex-basis: 0;
-  flex-grow: 1;
-}
-
-.time {
-  flex-basis: 0;
-  flex-grow: 3;
-  +below($mobile-max-width) {
+  .day-name {
+    flex-basis: 0;
     flex-grow: 1;
   }
+
+  .time {
+    flex-basis: 0;
+    flex-grow: 3;
+    +below($mobile-max-width) {
+      flex-grow: 1;
+    }
+  }
+
 }
+
 
 
 

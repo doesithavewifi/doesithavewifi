@@ -11,6 +11,6 @@ module.exports = (paths, options = {}) ->
       "#{paths.npm}/jquery/dist/jquery.js"
     ]
       .pipe concat('vendor.js')
-      .pipe gulpIf(!options.debugBuild, uglify())
+      .pipe gulpIf(options.minifiedBuild, uglify())
       .pipe gulp.dest(paths.build.js)
 
