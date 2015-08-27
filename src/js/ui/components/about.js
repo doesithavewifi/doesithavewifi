@@ -16,19 +16,18 @@ module.exports = React.createClass({
           <ButtonIcon className="close-button" icon="close" onClick={this.props.toggleAbout} />
           <h2>About this project</h2>
           <p>
-            <em>Does it have Wifi</em> is a project to document all the working cafes in 
-            a city. The team behind Does it have wifi work predominantly from 
-            cafes, and finding cafes with the right environment for 
-            working is difficult. <em>Does it have Wifi</em> makes it easy for you to find such places.
+            <em>Does it have Wifi</em> is a project to document all the best cafes for working in 
+            a city. We (the team) work predominantly from 
+            cafes and know how difficult is to find a place with the 
+            right environment. <em>Does it have Wifi</em> solves this problem.
           </p>
           <p>
-            Know of a great cafe that you want to add to the list? let us know by 
-            filling in our <a href={Constants.ADD_FORM_URL} target="_blank">Add Cafe</a> form. 
-            At the moment we're only displaying cafes in Taipei (where we work) but hope to add 
-            your city as soon as we get enough quality submissions!
+            Know of a great cafe? Fill out our <a href={Constants.ADD_FORM_URL} target="_blank">Add Cafe</a> form. 
+            At the moment we're only showing Taipei but will add other cities 
+            as and when we get enough quality submissions.
           </p>
           <p>
-            You can also give us feedback at: <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a>, <a href="https://twitter.com/hiddentao">@hiddentao</a> and <a href="https://twitter.com/leemanrolls">@leemanrolls</a>. 
+            Find us at: <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a>, <a href="https://twitter.com/hiddentao">@hiddentao</a> and <a href="https://twitter.com/leemanrolls">@leemanrolls</a>. 
           </p>
         </div>
       </OverlayModal>
