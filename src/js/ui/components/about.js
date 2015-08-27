@@ -28,7 +28,7 @@ module.exports = React.createClass({
             your city as soon as we get enough quality submissions!
           </p>
           <p>
-            By <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a>, <a href="https://twitter.com/hiddentao">@hiddentao</a> and <a href="https://twitter.com/leemanrolls">@leemanrolls</a>.
+            You can also give us feedback at: <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a>, <a href="https://twitter.com/hiddentao">@hiddentao</a> and <a href="https://twitter.com/leemanrolls">@leemanrolls</a>. 
           </p>
         </div>
       </OverlayModal>
