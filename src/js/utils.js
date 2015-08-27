@@ -147,15 +147,27 @@ exports.parseOpeningTimes = function(str) {
     };
 
     if (day2) {
-      var startDayIndex = _.indexOf(daysInWeek, day1),
-        endDayIndex = _.indexOf(daysInWeek, day2),
-        currentDayIndex = startDayIndex;
+      var _iterate = function(fromIndex, toIndex) {
+        var index = fromIndex;
 
-      while ( endDayIndex >= ++currentDayIndex && daysInWeek.length > currentDayIndex) {
-        ret[daysInWeek[currentDayIndex]] = {
-          from: startTime,
-          to: endTime
-        };
+        while ( toIndex >= index && daysInWeek.length > index) {
+          ret[daysInWeek[index]] = {
+            from: startTime,
+            to: endTime
+          };
+
+          index++;
+        }
+      };
+
+      var startDayIndex = _.indexOf(daysInWeek, day1),
+        endDayIndex = _.indexOf(daysInWeek, day2);
+
+      if (endDayIndex < startDayIndex) {
+        _iterate(0, endDayIndex);
+        _iterate(startDayIndex, daysInWeek.length - 1);
+      } else {
+        _iterate(startDayIndex, endDayIndex);
       }
     }
   };
