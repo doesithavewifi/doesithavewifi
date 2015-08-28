@@ -23,6 +23,16 @@ To force minification of assets (build takes a bit longer) include the `--minifi
 $ gulp --minified
 ```
 
+## Production deployment
+
+SSH as root into the production server:
+
+```
+$ cd /opt/doesithavewifi
+$ git pull
+$ npm run build
+```
+
 ## Credits
 
 * [Ramesh Nair](https://github.com/hiddentao)
