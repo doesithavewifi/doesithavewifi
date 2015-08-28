@@ -28,6 +28,7 @@ $ gulp --minified
 SSH as root into the production server:
 
 ```
+$ ssh root@45.55.241.79
 $ cd /opt/doesithavewifi
 $ git pull
 $ npm run build
