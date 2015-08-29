@@ -1,6 +1,6 @@
 var React = require('react');
 
-// var Disqus = require('react-disqus-thread');
+var Disqus = require('react-disqus-thread');
 
 module.exports = React.createClass({
   propTypes: {
@@ -9,13 +9,11 @@ module.exports = React.createClass({
   },
 
   render: function() { 
-    console.log(this.props.id);
-
-        // <Disqus shortname="doesithavewifi"
-        //   identifier={this.props.id}
-        //   title={this.props.title} />
     return (
       <div className="comment-thread">
+        <Disqus shortname="doesithavewifi"
+          identifier={this.props.id}
+          title={this.props.title} />
       </div>
     );
   },
