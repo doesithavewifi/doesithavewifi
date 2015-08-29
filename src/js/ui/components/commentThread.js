@@ -12,7 +12,7 @@ module.exports = React.createClass({
     return (
       <div className="comment-thread">
         <Disqus shortname="doesithavewifi"
-          identifier={this.props.id}
+          identifier={window.location.href}
           title={this.props.title} />
       </div>
     );
