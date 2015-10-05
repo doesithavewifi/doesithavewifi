@@ -27,7 +27,11 @@ module.exports = React.createClass({
             as and when we get enough quality submissions.
           </p>
           <p>
-            Find us at: <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a>, <a href="https://twitter.com/hiddentao">@hiddentao</a> and <a href="https://twitter.com/leemanrolls">@leemanrolls</a>. 
+            Does it have wifi was made and is maintained by Jeff and Ram. You find us on twitter at <a href="https://twitter.com/Jef_Lau">@Jef_Lau</a> and  <a href="https://twitter.com/hiddentao">@hiddentao</a>
+          </p>
+          <p>
+            <h3>Contributors</h3>
+            <a href="https://twitter.com/leemanrolls">@leemanrolls</a> 
           </p>
         </div>
       </OverlayModal>
