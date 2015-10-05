@@ -10,6 +10,7 @@ var Router = require('react-router'),
   SectionHeader = require('../components/sectionHeader'),
   OpeningTimes = require('../components/openingTimes'),
   Utils = require('../../utils'),
+  CommentThread = require('../components/commentThread'),
   Loader = require('../components/loader');
 
 import { FluxComponent } from '../../flux';
@@ -102,6 +103,11 @@ module.exports = React.createClass({
             <section id="map">
               <SectionHeader className="no-marg">Map</SectionHeader>
               {map}
+            </section>
+
+            <section id="comments">
+              <SectionHeader className="no-marg">Comments</SectionHeader>
+              <CommentThread id={item.slug} title={item.name} />
             </section>
 
           </main>
